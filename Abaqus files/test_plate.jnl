@@ -1,0 +1,1385 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-15.0, 15.0), 
+    point2=(15.0, -15.0))
+mdb.models['Model-1'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    -4.11459732055664, 19.2635612487793), value=1524.0, vertex1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[3], vertex2=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[0])
+mdb.models['Model-1'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    29.3456382751465, -3.13953590393066), value=1524.0, vertex1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[2], vertex2=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[3])
+mdb.models['Model-1'].sketches['__profile__'].Spot(point=(0.0, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], textPoint=(
+    50.829761505127, -6.52232551574707), value=762.0)
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], textPoint=(
+    54.3646812438965, -8.05373764038086), value=762.0)
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[4], textPoint=(
+    -143.155334472656, 1991.93298339844), value=762.0)
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='matrix', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['matrix'].BaseSolidExtrude(depth=254.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    0.0, 0.0), point1=(12.5, -7.5))
+mdb.models['Model-1'].sketches['__profile__'].RadialDimension(curve=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], radius=190.5, 
+    textPoint=(-41.6894302368164, -0.426361083984375))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='fibre', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['fibre'].BaseSolidExtrude(depth=2154.936, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].Material(name='Iron')
+mdb.models['Model-1'].materials['Iron'].Elastic(table=((1406000.0, 0.29), ))
+mdb.models['Model-1'].Material(name='Copper')
+mdb.models['Model-1'].materials['Copper'].Elastic(table=((121000.0, 0.34), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='Iron', name='matrix', 
+    thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='Copper', name='fibre', 
+    thickness=None)
+mdb.models['Model-1'].parts['matrix'].Set(cells=
+    mdb.models['Model-1'].parts['matrix'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), name='matrix')
+mdb.models['Model-1'].parts['matrix'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['matrix'].sets['matrix'], sectionName='matrix', 
+    thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['fibre'].Set(cells=
+    mdb.models['Model-1'].parts['fibre'].cells.getSequenceFromMask(('[#1 ]', ), 
+    ), name='fibre')
+mdb.models['Model-1'].parts['fibre'].SectionAssignment(offset=0.0, offsetField=
+    '', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['fibre'].sets['fibre'], sectionName='fibre', 
+    thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='matrix-1', 
+    part=mdb.models['Model-1'].parts['matrix'])
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['matrix'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['matrix'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['matrix'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].move(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[2], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[3], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[4], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[5], 
+    mdb.models['Model-1'].sketches['__edit__'].vertices[4]), vector=(747.0, 
+    -747.0))
+mdb.models['Model-1'].parts['matrix'].features['Solid extrude-1'].setValues(
+    sketch=mdb.models['Model-1'].sketches['__edit__'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['matrix'].regenerate()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-1', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-1'].translate(vector=(
+    990.6, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-1', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-1', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-1', ), 
+    vector=(-761.769859, -761.769859, 1117.6))
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['fibre'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['fibre'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['fibre'].features['Solid extrude-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['fibre'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['fibre'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['fibre'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].RadialDimension(curve=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[2], radius=95.25, 
+    textPoint=(-259.43701171875, -39.7667999267578))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[0], ))
+mdb.models['Model-1'].parts['fibre'].features['Solid extrude-1'].setValues(
+    sketch=mdb.models['Model-1'].sketches['__edit__'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['fibre'].regenerate()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-2', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-2'].translate(vector=(
+    943.651920531033, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.DatumPointByCoordinate(coords=(609.6, 152.4, 
+    95.25))
+mdb.models['Model-1'].rootAssembly.DatumPointByCoordinate(coords=(914.4, 152.4, 
+    95.25))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-2', ), 
+    vector=(-609.369859, -1371.369859, 1038.901921))
+del mdb.models['Model-1'].rootAssembly.features['fibre-2']
+del mdb.models['Model-1'].rootAssembly.features['Datum pt-2']
+# Save by roshan94 on 2020_02_19-20.06.04; build 2019 2018_09_24-13.41.51 157541
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.DatumPointByCoordinate(coords=(4267.0, 
+    1828.8, 95.25))
+mdb.models['Model-1'].rootAssembly.deleteFeatures(('Datum pt-1', 'Datum pt-2'))
+mdb.models['Model-1'].rootAssembly.DatumPointByCoordinate(coords=(4267.0, 
+    1828.8, 95.25))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['matrix'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['matrix'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['matrix'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[0], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[2], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[1], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[3], ))
+mdb.models['Model-1'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    86.3022766113281, 931.925537109375), value=6096.0, vertex1=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[3], vertex2=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[0])
+mdb.models['Model-1'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    1269.81677246094, 171.16259765625), value=6096.0, vertex1=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[2], vertex2=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[3])
+mdb.models['Model-1'].sketches['__edit__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[3], textPoint=(
+    1486.79431152344, -77.5009765625), value=3048.0)
+mdb.models['Model-1'].sketches['__edit__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[4], textPoint=(
+    241.076049804688, -1037.02954101563), value=3048.0)
+mdb.models['Model-1'].sketches['__edit__'].move(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[2], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[3], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[4], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[5], 
+    mdb.models['Model-1'].sketches['__edit__'].vertices[4]), vector=(2286.0, 
+    -2286.0))
+mdb.models['Model-1'].parts['matrix'].features['Solid extrude-1'].setValues(
+    sketch=mdb.models['Model-1'].sketches['__edit__'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['matrix'].regenerate()
+mdb.models['Model-1'].parts['matrix'].regenerate()
+mdb.models['Model-1'].parts['fibre'].features['Solid extrude-1'].setValues(
+    depth=8619.744)
+mdb.models['Model-1'].parts['fibre'].regenerate()
+mdb.models['Model-1'].parts['fibre'].regenerate()
+mdb.models['Model-1'].rootAssembly.regenerate()
+del mdb.models['Model-1'].rootAssembly.features['fibre-1']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-1', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-1'].translate(vector=(
+    4381.3, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-1', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-1', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-1', ), 
+    vector=(-3047.079434, -3047.079434, 4508.3))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-2', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-2'].translate(vector=(
+    4381.3, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-2', ), 
+    vector=(-1828.079434, -4266.279434, 4476.55))
+mdb.models['Model-1'].rootAssembly.DatumPointByCoordinate(coords=(5181.6, 
+    914.4, 95.25))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-3', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-3'].translate(vector=(
+    5295.9, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-3', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-3', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-3', ), 
+    vector=(-913.479434, -5180.679434, 5391.15))
+mdb.models['Model-1'].parts['matrix'].regenerate()
+mdb.models['Model-1'].rootAssembly.features['Datum pt-1'].setValues(zValue=
+    127.0)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.features['Datum pt-2'].setValues(zValue=
+    127.0)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.regenerate()
+del mdb.models['Model-1'].rootAssembly.features['fibre-2']
+del mdb.models['Model-1'].rootAssembly.features['fibre-3']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-2', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-2'].translate(vector=(
+    5295.9, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-2', ), 
+    vector=(-1828.079434, -4266.279434, 5422.9))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-3', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-3'].translate(vector=(
+    5295.9, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-3', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-3', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-3', ), 
+    vector=(-913.479434, -5180.679434, 5422.9))
+mdb.models['Model-1'].rootAssembly.DatumPointByCoordinate(coords=(-4267.2, 
+    -1828.8, 127.0))
+mdb.models['Model-1'].rootAssembly.DatumPointByCoordinate(coords=(-5181.6, 
+    -914.4, 127.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-4', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-4'].translate(vector=(
+    5363.25192140008, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-4', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-4', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-4', ), 
+    vector=(-4267.2, -1828.8, 5490.251921))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-5', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-5'].translate(vector=(
+    5363.25192140008, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-5', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-5', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-5', ), 
+    vector=(-5181.6, -914.4, 5490.251921))
+mdb.models['Model-1'].rootAssembly.InstanceFromBooleanMerge(domain=GEOMETRY, 
+    instances=(mdb.models['Model-1'].rootAssembly.instances['matrix-1'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-1'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-2'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-3'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-4'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-5']), 
+    keepIntersections=ON, name='merged_composite', originalInstances=SUPPRESS)
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=305.06, name='__profile__', 
+    sheetSize=12202.57, transform=
+    mdb.models['Model-1'].parts['merged_composite'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[38], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_composite'].edges[34], 
+    sketchOrientation=RIGHT, origin=(-24.665239, 3048.0, 127.0)))
+mdb.models['Model-1'].parts['merged_composite'].projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[16], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[35], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[31], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[32], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[34], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[33], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].CutExtrude(
+    flipExtrudeDirection=ON, sketch=
+    mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=RIGHT, 
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[38], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_composite'].edges[34])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=431.23, name='__profile__', 
+    sheetSize=17249.57, transform=
+    mdb.models['Model-1'].parts['merged_composite'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[36], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_composite'].edges[33], 
+    sketchOrientation=RIGHT, origin=(3048.0, -24.670808, 127.0)))
+mdb.models['Model-1'].parts['merged_composite'].projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[27], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[32], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[28], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[35], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[33], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[34], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].CutExtrude(
+    flipExtrudeDirection=ON, sketch=
+    mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=RIGHT, 
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[36], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_composite'].edges[33])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=431.23, name='__profile__', 
+    sheetSize=17249.57, transform=
+    mdb.models['Model-1'].parts['merged_composite'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[31], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_composite'].edges[32], 
+    sketchOrientation=RIGHT, origin=(23.926771, -3048.0, 127.0)))
+mdb.models['Model-1'].parts['merged_composite'].projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[30], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[34], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[32], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[33], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].CutExtrude(
+    flipExtrudeDirection=ON, sketch=
+    mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=RIGHT, 
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[31], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_composite'].edges[32])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=431.23, name='__profile__', 
+    sheetSize=17249.57, transform=
+    mdb.models['Model-1'].parts['merged_composite'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[26], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_composite'].edges[31], 
+    sketchOrientation=RIGHT, origin=(-3048.0, 23.921203, 127.0)))
+mdb.models['Model-1'].parts['merged_composite'].projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[32], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[21], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[31], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_composite'].edges[29], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_composite'].CutExtrude(
+    flipExtrudeDirection=ON, sketch=
+    mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=RIGHT, 
+    sketchPlane=mdb.models['Model-1'].parts['merged_composite'].faces[26], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_composite'].edges[31])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].parts['merged_composite'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=20.0)
+mdb.models['Model-1'].parts['merged_composite'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=30.0)
+mdb.models['Model-1'].parts['merged_composite'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=50.0)
+mdb.models['Model-1'].parts['merged_composite'].generateMesh()
+mdb.models['Model-1'].parts['merged_composite'].setMeshControls(elemShape=TET, 
+    regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#4 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['merged_composite'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#4 ]', ), ), ))
+mdb.models['Model-1'].parts['merged_composite'].deleteMesh(regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#8 ]', ), ))
+mdb.models['Model-1'].parts['merged_composite'].setMeshControls(elemShape=TET, 
+    regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#8 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['merged_composite'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#8 ]', ), ), ))
+mdb.models['Model-1'].parts['merged_composite'].deleteMesh(regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#10 ]', ), ))
+mdb.models['Model-1'].parts['merged_composite'].setMeshControls(elemShape=TET, 
+    regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#10 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['merged_composite'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#10 ]', ), ), ))
+mdb.models['Model-1'].parts['merged_composite'].generateMesh()
+mdb.models['Model-1'].parts['merged_composite'].setMeshControls(elemShape=
+    HEX_DOMINATED, regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#20 ]', ), ), technique=SYSTEM_ASSIGN)
+mdb.models['Model-1'].parts['merged_composite'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].BuckleStep(maxIterations=300, name='Step-1', numEigen=5, 
+    previous='Initial', vectors=10)
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, 3048.0, 127.0))
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, -3048.0, 127.0))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['merged_composite-1'].faces.getSequenceFromMask(
+    ('[#4000 ]', ), ), name='p_plate_top')
+mdb.models['Model-1'].RigidBody(name='Constraint-1', pinRegion=
+    mdb.models['Model-1'].rootAssembly.sets['p_plate_top'], refPointRegion=
+    Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[31], )))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['merged_composite-1'].faces.getSequenceFromMask(
+    ('[#80000 ]', ), ), name='p_plate_bottom')
+mdb.models['Model-1'].RigidBody(name='Constraint-2', pinRegion=
+    mdb.models['Model-1'].rootAssembly.sets['p_plate_bottom'], refPointRegion=
+    Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[32], )))
+mdb.models['Model-1'].EncastreBC(createStepName='Step-1', localCsys=None, name=
+    'BC-1', region=mdb.models['Model-1'].rootAssembly.sets['p_plate_bottom'])
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, buckleCase=
+    PERTURBATION_AND_BUCKLING, createStepName='Step-1', distributionType=
+    UNIFORM, fieldName='', fixed=OFF, localCsys=None, name='BC-2', region=
+    mdb.models['Model-1'].rootAssembly.sets['p_plate_top'], u1=0.0, u2=UNSET, 
+    u3=0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].rootAssembly.Set(name='top_mid', referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[31], ))
+mdb.models['Model-1'].ConcentratedForce(cf2=-1.0, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', localCsys=None, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.sets['top_mid'])
+del mdb.models['Model-1'].loads['Load-1']
+mdb.models['Model-1'].ConcentratedForce(cf2=-1000.0, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', localCsys=None, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.sets['top_mid'])
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-1', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['Model-1'].keywordBlock.synchVersions(storeNodesAndElements=False)
+#* ValueError: In model: Model-1. 
+#* following constraints reference regions which
+#* contains geometric entities that are not
+#* associated with a mesh:
+#*     Constraint-1
+#*     Constraint-2
+#* 
+#* The following boundary conditions reference regions
+#* which are not associated with a mesh:
+#*     BC-1
+#*     BC-2
+#* 
+#* 
+#* The input file was not generated.
+#* ValueError: In model: Model-1. 
+#* following constraints reference regions which
+#* contains geometric entities that are not
+#* associated with a mesh:
+#*     Constraint-1
+#*     Constraint-2
+#* 
+#* The following boundary conditions reference regions
+#* which are not associated with a mesh:
+#*     BC-1
+#*     BC-2
+#* 
+#* 
+#* The input file was not generated.
+mdb.models['Model-1'].parts['matrix'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=50.0)
+mdb.models['Model-1'].parts['matrix'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=100.0)
+mdb.models['Model-1'].parts['matrix'].generateMesh()
+# Save by roshan94 on 2020_02_20-11.03.10; build 2019 2018_09_24-13.41.51 157541
+# Save by roshan94 on 2020_02_20-12.19.20; build 2019 2018_09_24-13.41.51 157541
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['merged_composite'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D8R, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    kinematicSplit=AVERAGE_STRAIN, hourglassControl=DEFAULT, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6, elemLibrary=STANDARD), 
+    ElemType(elemCode=C3D4, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT)), regions=(
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#3f ]', ), ), ))
+mdb.models['Model-1'].parts['merged_composite'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D8R, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    kinematicSplit=AVERAGE_STRAIN, hourglassControl=DEFAULT, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6, elemLibrary=STANDARD), 
+    ElemType(elemCode=C3D4, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT)), regions=(
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#20 ]', ), ), ))
+mdb.models['Model-1'].parts['merged_composite'].setMeshControls(elemShape=TET, 
+    regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#20 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['merged_composite'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#20 ]', ), ), ))
+mdb.models['Model-1'].parts['merged_composite'].deleteMesh(regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#3 ]', ), ))
+mdb.models['Model-1'].parts['merged_composite'].setMeshControls(elemShape=TET, 
+    regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#3f ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['merged_composite'].generateMesh(regions=
+    mdb.models['Model-1'].parts['merged_composite'].cells.getSequenceFromMask((
+    '[#3f ]', ), ))
+mdb.models['Model-1'].parts['merged_composite'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['merged_composite'].sets['matrix'], 
+    sectionName='matrix', thicknessAssignment=FROM_SECTION)
+del mdb.models['Model-1'].parts['merged_composite'].sectionAssignments[2]
+del mdb.models['Model-1'].parts['merged_composite']
+mdb.models['Model-1'].parts['fibre'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=30.0)
+mdb.models['Model-1'].parts['fibre'].generateMesh(regions=
+    mdb.models['Model-1'].parts['fibre'].cells.getSequenceFromMask(('[#1 ]', ), 
+    ))
+mdb.models['Model-1'].rootAssembly.suppressFeatures(featureNames=(
+    'merged_composite-1', ))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='matrix-2', 
+    part=mdb.models['Model-1'].parts['matrix'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-6', part=
+    mdb.models['Model-1'].parts['fibre'])
+del mdb.models['Model-1'].rootAssembly.features['fibre-6']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-6', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-6'].translate(vector=(
+    5295.9, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-6', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-6', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-6', ), 
+    vector=(-1828.079434, -4266.279434, 5422.9))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-7', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-7'].translate(vector=(
+    5295.9, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-7', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-7', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-7', ), 
+    vector=(-913.479434, -5180.679434, 5422.9))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-8', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-8'].translate(vector=(
+    5363.25192140008, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-8', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-8', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-8', ), 
+    vector=(-4267.2, -1828.8, 5490.251921))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-9', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.instances['fibre-9'].translate(vector=(
+    5363.25192140008, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-9', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=45.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-9', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-9', ), 
+    vector=(-5181.6, -914.4, 5490.251921))
+mdb.models['Model-1'].rootAssembly._previewMergeMeshes(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['matrix-2'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-6'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-7'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-8'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-9']), 
+    keepOnlyOrphanElems=True, nodeMergingTolerance=1e-06)
+mdb.models['Model-1'].rootAssembly.InstanceFromBooleanMerge(domain=BOTH, 
+    instances=(mdb.models['Model-1'].rootAssembly.instances['matrix-2'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-6'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-7'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-8'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-9']), 
+    keepIntersections=ON, mergeNodes=BOUNDARY_ONLY, name='Part-1', 
+    nodeMergingTolerance=1e-06, originalInstances=SUPPRESS)
+mdb.models['Model-1'].parts.changeKey(fromName='Part-1', toName='merged_part')
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=305.06, name='__profile__', 
+    sheetSize=12202.57, transform=
+    mdb.models['Model-1'].parts['merged_part'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[31], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_part'].edges[26], 
+    sketchOrientation=RIGHT, origin=(16.741046, 3048.0, 127.0)))
+mdb.models['Model-1'].parts['merged_part'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[27], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[19], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[26], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[24], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[31], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_part'].edges[26])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=431.23, name='__profile__', 
+    sheetSize=17249.57, transform=
+    mdb.models['Model-1'].parts['merged_part'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[24], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_part'].edges[14], 
+    sketchOrientation=RIGHT, origin=(3048.0, 16.735553, 127.0)))
+mdb.models['Model-1'].parts['merged_part'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[15], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[14], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[17], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[16], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[24], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_part'].edges[14])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=431.23, name='__profile__', 
+    sheetSize=17249.57, transform=
+    mdb.models['Model-1'].parts['merged_part'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[21], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_part'].edges[18], 
+    sketchOrientation=RIGHT, origin=(-16.735553, -3048.0, 127.0)))
+mdb.models['Model-1'].parts['merged_part'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[13], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[18], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[17], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[16], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[21], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_part'].edges[18])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=431.23, name='__profile__', 
+    sheetSize=17249.57, transform=
+    mdb.models['Model-1'].parts['merged_part'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[18], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['merged_part'].edges[17], 
+    sketchOrientation=RIGHT, origin=(-3048.0, -16.741046, 127.0)))
+mdb.models['Model-1'].parts['merged_part'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[18], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[17], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[15], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].projectEdgesOntoSketch(edges=(
+    mdb.models['Model-1'].parts['merged_part'].edges[19], ), sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['merged_part'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['merged_part'].faces[18], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['merged_part'].edges[17])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['merged_part'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=300.0)
+mdb.models['Model-1'].parts['merged_part'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=100.0)
+mdb.models['Model-1'].parts['merged_part'].setMeshControls(elemShape=TET, 
+    regions=
+    mdb.models['Model-1'].parts['merged_part'].cells.getSequenceFromMask((
+    '[#1f ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['merged_part'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['merged_part'].cells.getSequenceFromMask((
+    '[#1f ]', ), ), ))
+mdb.models['Model-1'].parts['merged_part'].generateMesh(regions=
+    mdb.models['Model-1'].parts['merged_part'].cells.getSequenceFromMask((
+    '[#1f ]', ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.regenerate()
+del mdb.models['Model-1'].boundaryConditions['BC-1']
+del mdb.models['Model-1'].boundaryConditions['BC-2']
+del mdb.models['Model-1'].constraints['Constraint-1']
+del mdb.models['Model-1'].constraints['Constraint-2']
+del mdb.models['Model-1'].loads['Load-1']
+del mdb.models['Model-1'].rootAssembly.features['RP-2']
+del mdb.models['Model-1'].rootAssembly.features['RP-1']
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, 3048.0, 127.0))
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, -3048.0, 127.0))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    ('[#8000 ]', ), ), name='pin_top')
+mdb.models['Model-1'].RigidBody(name='Constraint-1', pinRegion=
+    mdb.models['Model-1'].rootAssembly.sets['pin_top'], refPointRegion=Region(
+    referencePoints=(mdb.models['Model-1'].rootAssembly.referencePoints[52], 
+    )))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    ('[#2000 ]', ), ), name='pin_bottom')
+mdb.models['Model-1'].RigidBody(name='Constraint-2', pinRegion=
+    mdb.models['Model-1'].rootAssembly.sets['pin_bottom'], refPointRegion=
+    Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[53], )))
+del mdb.models['Model-1'].steps['Step-1']
+mdb.models['Model-1'].BuckleStep(maxIterations=300, name='Step-1', numEigen=5, 
+    previous='Initial', vectors=10)
+mdb.models['Model-1'].EncastreBC(createStepName='Step-1', localCsys=None, name=
+    'BC-1', region=mdb.models['Model-1'].rootAssembly.sets['pin_bottom'])
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, buckleCase=
+    PERTURBATION_AND_BUCKLING, createStepName='Step-1', distributionType=
+    UNIFORM, fieldName='', fixed=OFF, localCsys=None, name='BC-2', region=
+    mdb.models['Model-1'].rootAssembly.sets['pin_top'], u1=0.0, u2=UNSET, u3=
+    0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].rootAssembly.Set(name='top_centre', referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[52], ))
+mdb.models['Model-1'].ConcentratedForce(cf2=-1.0, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', localCsys=None, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.sets['top_centre'])
+del mdb.jobs['Job-1']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='linear_buckle_plate', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['linear_buckle_plate'].submit(consistencyChecking=OFF, datacheckJob=
+    True)
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '136 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 nodes associated with rigid bodies have boundary conditions prescribed at nodes other than the reference node. These boundary conditions will be transferred to the associated rigid body reference node.The reference nodes and the dependent nodes have been identified in node set WarnNodeOverconBoundRB.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node. These boundary conditions indicate the rigid bodies cannot rotate about certain axes. Zero rotational boundary conditions have been added to these reference nodes.The reference nodes have been identified in node set WarnNodeOverconBoundRBRot.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\temp\\linear_buckle_plate.odb', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 8440, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'memory': 2357.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 360.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(JOB_COMPLETED, {
+    'jobName': 'linear_buckle_plate', 'time': 'Fri Feb 21 11:06:57 2020'})
+mdb.jobs['linear_buckle_plate'].submit(consistencyChecking=OFF)
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '136 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 nodes associated with rigid bodies have boundary conditions prescribed at nodes other than the reference node. These boundary conditions will be transferred to the associated rigid body reference node.The reference nodes and the dependent nodes have been identified in node set WarnNodeOverconBoundRB.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node. These boundary conditions indicate the rigid bodies cannot rotate about certain axes. Zero rotational boundary conditions have been added to these reference nodes.The reference nodes have been identified in node set WarnNodeOverconBoundRBRot.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\temp\\linear_buckle_plate.odb', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 120, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'memory': 2782.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 356.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'memory': 2865.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 355.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STATUS, {'totalTime': 0.0, 
+    'increment': 1, 'attempts': 1, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'timeIncrement': 1e-36, 'stepTime': 1e-36, 'step': 1, 
+    'jobName': 'linear_buckle_plate', 'severe': 0, 'equilibrium': 0})
+mdb.jobs['linear_buckle_plate']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(JOB_COMPLETED, {
+    'jobName': 'linear_buckle_plate', 'time': 'Fri Feb 21 11:10:34 2020'})
+del mdb.models['Model-1'].loads['Load-1']
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'U'))
+mdb.jobs['linear_buckle_plate'].submit(consistencyChecking=OFF)
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '136 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 nodes associated with rigid bodies have boundary conditions prescribed at nodes other than the reference node. These boundary conditions will be transferred to the associated rigid body reference node.The reference nodes and the dependent nodes have been identified in node set WarnNodeOverconBoundRB.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node. These boundary conditions indicate the rigid bodies cannot rotate about certain axes. Zero rotational boundary conditions have been added to these reference nodes.The reference nodes have been identified in node set WarnNodeOverconBoundRBRot.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\temp\\linear_buckle_plate.odb', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 15384, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2782.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 356.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2865.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 355.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'DIFFERENTIAL STIFFNESS MATRIX IS COMPLETELY NULL.  THE EIGENPROBLEM CANNOT BE SOLVED.  IN A *BUCKLE ANALYSIS THE MOST LIKELY CAUSE IS THAT A NONZERO LOADING PATTERN WAS NOT SPECIFIED VIA *BOUNDARY, *CLOAD, *DLOAD, ETC,.  SEE Eigenvalue Buckling Prediction IN THE Abaqus/Standard USERS MANUAL.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.models['Model-1'].rootAssembly.Surface(name='top_surface', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    ('[#8000 ]', ), ))
+mdb.models['Model-1'].Pressure(createStepName='Step-1', distributionType=
+    UNIFORM, field='', magnitude=1.0, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['top_surface'])
+mdb.jobs['linear_buckle_plate'].submit(consistencyChecking=OFF)
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '136 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 nodes associated with rigid bodies have boundary conditions prescribed at nodes other than the reference node. These boundary conditions will be transferred to the associated rigid body reference node.The reference nodes and the dependent nodes have been identified in node set WarnNodeOverconBoundRB.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node. These boundary conditions indicate the rigid bodies cannot rotate about certain axes. Zero rotational boundary conditions have been added to these reference nodes.The reference nodes have been identified in node set WarnNodeOverconBoundRBRot.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\temp\\linear_buckle_plate.odb', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 13560, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2782.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 356.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2865.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 355.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 1, 'timeIncrement': 1e-36, 'increment': 1, 'stepTime': 1e-36, 
+    'step': 1, 'jobName': 'linear_buckle_plate', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['linear_buckle_plate']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(JOB_COMPLETED, {
+    'time': 'Fri Feb 21 11:35:37 2020', 'jobName': 'linear_buckle_plate'})
+# Save by roshan94 on 2020_02_21-11.42.14; build 2019 2018_09_24-13.41.51 157541
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['merged_part'].Set(cells=
+    mdb.models['Model-1'].parts['merged_part'].cells.getSequenceFromMask((
+    '[#10 ]', ), ), name='Set-5')
+mdb.models['Model-1'].parts['merged_part'].sectionAssignments[1].setValues(
+    offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['merged_part'].sets['Set-5'])
+mdb.models['Model-1'].parts['merged_part'].Set(cells=
+    mdb.models['Model-1'].parts['merged_part'].cells.getSequenceFromMask((
+    '[#4 ]', ), ), name='Set-6')
+mdb.models['Model-1'].parts['merged_part'].sectionAssignments[1].setValues(
+    region=mdb.models['Model-1'].parts['merged_part'].sets['Set-6'])
+mdb.models['Model-1'].parts['merged_part'].Set(cells=
+    mdb.models['Model-1'].parts['merged_part'].cells.getSequenceFromMask((
+    '[#4 ]', ), ), edges=
+    mdb.models['Model-1'].parts['merged_part'].edges.getSequenceFromMask((
+    '[#a0 ]', ), ), faces=
+    mdb.models['Model-1'].parts['merged_part'].faces.getSequenceFromMask((
+    '[#4 ]', ), ), name='Set-6')
+mdb.models['Model-1'].parts['merged_part'].Set(cells=
+    mdb.models['Model-1'].parts['merged_part'].cells.getSequenceFromMask((
+    '[#f ]', ), ), name='Set-6')
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.jobs['linear_buckle_plate'].submit(consistencyChecking=OFF)
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '136 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 nodes associated with rigid bodies have boundary conditions prescribed at nodes other than the reference node. These boundary conditions will be transferred to the associated rigid body reference node.The reference nodes and the dependent nodes have been identified in node set WarnNodeOverconBoundRB.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node. These boundary conditions indicate the rigid bodies cannot rotate about certain axes. Zero rotational boundary conditions have been added to these reference nodes.The reference nodes have been identified in node set WarnNodeOverconBoundRBRot.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\temp\\linear_buckle_plate.odb', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 14120, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2782.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 356.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2865.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 355.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 1, 'timeIncrement': 1e-36, 'increment': 1, 'stepTime': 1e-36, 
+    'step': 1, 'jobName': 'linear_buckle_plate', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['linear_buckle_plate']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(JOB_COMPLETED, {
+    'time': 'Wed Feb 26 13:19:46 2020', 'jobName': 'linear_buckle_plate'})
+# Save by roshan94 on 2020_02_26-13.21.02; build 2019 2018_09_24-13.41.51 157541
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['linear_buckle_plate'].submit(consistencyChecking=OFF)
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '136 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 nodes associated with rigid bodies have boundary conditions prescribed at nodes other than the reference node. These boundary conditions will be transferred to the associated rigid body reference node.The reference nodes and the dependent nodes have been identified in node set WarnNodeOverconBoundRB.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node. These boundary conditions indicate the rigid bodies cannot rotate about certain axes. Zero rotational boundary conditions have been added to these reference nodes.The reference nodes have been identified in node set WarnNodeOverconBoundRBRot.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\temp\\linear_buckle_plate.odb', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 12548, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2782.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 356.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2865.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 355.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 1, 'timeIncrement': 1e-36, 'increment': 1, 'stepTime': 1e-36, 
+    'step': 1, 'jobName': 'linear_buckle_plate', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['linear_buckle_plate']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(JOB_COMPLETED, {
+    'time': 'Thu Feb 27 12:25:17 2020', 'jobName': 'linear_buckle_plate'})
+# Save by roshan94 on 2020_02_27-12.26.49; build 2019 2018_09_24-13.41.51 157541
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['linear_buckle_plate'].submit(consistencyChecking=OFF)
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '136 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 nodes associated with rigid bodies have boundary conditions prescribed at nodes other than the reference node. These boundary conditions will be transferred to the associated rigid body reference node.The reference nodes and the dependent nodes have been identified in node set WarnNodeOverconBoundRB.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node. These boundary conditions indicate the rigid bodies cannot rotate about certain axes. Zero rotational boundary conditions have been added to these reference nodes.The reference nodes have been identified in node set WarnNodeOverconBoundRBRot.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '853 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\temp\\linear_buckle_plate.odb', 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'AERO-MJ09CBE4', 'handle': 15064, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2782.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 356.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': 'linear_buckle_plate', 
+    'memory': 2865.0})
+mdb.jobs['linear_buckle_plate']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 16032.0, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(MINIMUM_MEMORY, {
+    'minimum_memory': 355.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 1, 'timeIncrement': 1e-36, 'increment': 1, 'stepTime': 1e-36, 
+    'step': 1, 'jobName': 'linear_buckle_plate', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['linear_buckle_plate']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'linear_buckle_plate'})
+mdb.jobs['linear_buckle_plate']._Message(JOB_COMPLETED, {
+    'time': 'Tue Mar 10 13:13:42 2020', 'jobName': 'linear_buckle_plate'})
+# Save by roshan94 on 2020_03_10-13.23.16; build 2019 2018_09_24-13.41.51 157541

@@ -1,0 +1,483 @@
+1
+
+   Abaqus 3DEXPERIENCE R2019x                                  Date 02-May-2020   Time 00:23:08
+   For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes SIMULIA Corp.
+                           1301 Atwood Avenue, Suite 101W
+                              Johnston, RI 02919, USA
+ 
+
+
+                   The Abaqus Software is available only under license
+                   from Dassault Systemes or its subsidiary and may be
+                   used or reproduced only in accordance with the terms
+                   of such license.
+ 
+                          On machine AERO-MJ09CBE4 
+                          you are authorized to run
+                          Abaqus/Standard until 11-Jul-2021
+
+                          Your site id is: 200000000002185 
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      http://www.3ds.com/products/simulia/locations/
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *               Abaqus 3DEXPERIENCE R2019x                * 
+                *                                                         * 
+                *          BUILD ID: 2018_09_24-13.41.51 157541           * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using                         * 
+                *  release 3DEXPERIENCE R2019x manuals                    * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *   This program may not be used for commercial purposes  * 
+                *           without payment of a commercial fee.          * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+ ***ERROR: in keyword *RIGIDBODY, file "Buckling_job_3_3.inp", line 82294: 
+           Unknown assembly set TOP_SET_PIN
+ ***NOTE: DUE TO AN INPUT ERROR THE ANALYSIS PRE-PROCESSOR HAS BEEN UNABLE TO 
+          INTERPRET SOME DATA.  SUBSEQUENT ERRORS MAY BE CAUSED BY THIS OMISSION
+
+ ***ERROR: in keyword *RIGIDBODY, file "Buckling_job_3_3.inp", line 82296: 
+           Unknown assembly set BOTTOM_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_3_3.inp", line 82318: 
+           Unknown assembly node set BOTTOM_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_3_3.inp", line 82320: 
+           Unknown assembly node set BOTTOM_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_3_3.inp", line 82323: 
+           Unknown assembly node set TOP_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_3_3.inp", line 82323: 
+           Unknown assembly node set TOP_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_3_3.inp", line 82326: 
+           Unknown assembly node set TOP_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_3_3.inp", line 82326: 
+           Unknown assembly node set TOP_SET_PIN
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Heading
+  *Node
+  *Element, type=C3D4
+  *Nset, nset=ASSEMBLY_PART-1-1_FIBRE_SET2
+  *Elset, elset=ASSEMBLY_PART-1-1_FIBRE_SET2
+  *Node
+  *Nset, nset=ASSEMBLY__PICKEDSET19
+  *Nset, nset=ASSEMBLY__PICKEDSET21
+
+ ***WARNING: BUCKLE OPTION IS NOT SUPPORTED FOR ELEMENT LOOP PARALLELIZATION. 
+             IF YOU HAVE SPECIFIED ELEMENT LOOP PARALLELIZATION, IT WILL BE 
+             TURNED OFF FOR THIS ANALYSIS.
+ LINE IMAGE: *buckle
+  *material, name=FIBRE_MATERIAL
+  *elastic
+  *material, name=MATRIX_MATERIAL
+  *elastic
+  *solidsection, elset=ASSEMBLY_PART-1-1_FIBRE_SET2, material=FIBRE_MATERIAL
+  *solidsection, elset=ASSEMBLY_PART-1-1_FIBRE_SET2, material=FIBRE_MATERIAL
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_TOP_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET19, 
+             pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_BOTTOM_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET21, 
+             pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: SURFACE DEFINITION ASSEMBLY_TOP_SURFACE NOT FOUND.
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_TOP_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET19, 
+             pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_BOTTOM_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET21, 
+             pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *output, field, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, field, variable=PRESELECT
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+  
+                               E L E M E N T   Q U A L I T Y  C H E C K S        
+  
+  
+ ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
+           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
+  
+           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
+           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
+           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
+           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
+           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
+           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
+  
+           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
+           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
+           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
+           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
+  
+           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
+           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
+           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
+           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
+           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
+           THAN 160 DEGREES. 
+  
+           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
+           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
+           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+
+ ***WARNING: 148 elements are distorted. Either the isoparametric angles are 
+             out of the suggested limits or the triangular or tetrahedral 
+             quality measure is bad. The elements have been identified in 
+             element set WarnElemDistorted.
+  
+ --------------------------------------------------------------------------------
+ Distorted tetrahedral elements
+  
+      Element       Quality measure     Min angle        Max angle     Adjusted nodes 
+ ------------------ ---------------- ---------------- ---------------- -------------- 
+       PART-1-1.551         0.199176          9.20888          146.943       NO       
+       PART-1-1.687        0.0431188          14.9643          160.716       NO       
+       PART-1-1.703        0.0081082          12.0673          156.768       NO       
+       PART-1-1.893        0.0990535          9.26882          156.465       NO       
+       PART-1-1.929         0.154934          11.0938           161.13       NO       
+      PART-1-1.2639        0.0594819          12.9121          162.019       NO       
+      PART-1-1.3521         0.063581           13.385          162.284       NO       
+      PART-1-1.3656         0.211315          12.0448          160.537       NO       
+      PART-1-1.3719       0.00448952          18.3018          160.838       NO       
+      PART-1-1.4009        0.0112281          16.0573           160.58       NO       
+      PART-1-1.4066          0.06335          11.9434          160.062       NO       
+      PART-1-1.4393        0.0586133          14.1499          161.278       NO       
+      PART-1-1.4736        0.0605224          13.0534          161.841       NO       
+      PART-1-1.4944        0.0478612          13.2419          160.479       NO       
+      PART-1-1.5276         0.122965          14.0829          160.238       NO       
+      PART-1-1.5761         0.174913          11.2487          160.815       NO       
+      PART-1-1.5770        0.0182014          17.5936          151.279       NO       
+      PART-1-1.5973        0.0189265          16.9512          159.002       NO       
+      PART-1-1.6591        0.0457084          11.7256          162.697       NO       
+      PART-1-1.7566         0.195606          9.85117          157.574       NO       
+      PART-1-1.7570         0.187764          9.57817          157.448       NO       
+      PART-1-1.8282        0.0130816          12.2275          163.966       NO       
+      PART-1-1.9453        0.0108647          24.4102          158.025       NO       
+      PART-1-1.9712        0.0579412          15.0908          160.165       NO       
+     PART-1-1.10574         0.119574          9.98574          165.154       NO       
+     PART-1-1.11440         0.016605          17.1062          159.452       NO       
+     PART-1-1.12547        0.0142952          12.5829          155.627       NO       
+     PART-1-1.12836      7.08761E-28      8.27764E-06             180.       NO       
+     PART-1-1.13091       0.00811127          19.9724          161.232       NO       
+     PART-1-1.13228       0.00959049          17.5726          160.021       NO       
+     PART-1-1.13477        0.0108663          13.7116          161.412       NO       
+     PART-1-1.14001         0.068429          13.6532          160.936       NO       
+     PART-1-1.14030         0.010626          14.3106          158.614       NO       
+     PART-1-1.15000         0.205542          13.0206          160.423       NO       
+     PART-1-1.15741         0.153478          12.1692          160.512       NO       
+     PART-1-1.15857         0.117583          12.5232          161.794       NO       
+     PART-1-1.16201       0.00166783          9.37684          163.171       NO       
+     PART-1-1.16273        0.0579111          12.5928          161.376       NO       
+     PART-1-1.16299       0.00305071          13.3455          166.128       NO       
+     PART-1-1.16837       0.00299705          11.0739          159.766       NO       
+     PART-1-1.17904         0.124906          10.4897          162.216       NO       
+     PART-1-1.18057        0.0162336          27.6882          135.695       NO       
+     PART-1-1.18150        0.0579696           13.974          160.217       NO       
+     PART-1-1.18210        0.0163301          24.6788          143.421       NO       
+     PART-1-1.18363        0.0694955          11.4341          160.686       NO       
+     PART-1-1.18712       0.00205251          13.1755          166.835       NO       
+     PART-1-1.19074        0.0275905          15.1395          160.195       NO       
+     PART-1-1.19659       0.00924574          14.9124          156.828       NO       
+     PART-1-1.20074         0.100377           13.938          160.223       NO       
+     PART-1-1.20094        0.0659884          10.6874          163.581       NO       
+     PART-1-1.20378        0.0612946          13.9366          160.828       NO       
+     PART-1-1.20528        0.0190002          18.8574          158.751       NO       
+     PART-1-1.20857        0.0017415          9.26028          165.727       NO       
+     PART-1-1.21873       0.00319245          10.3368          163.975       NO       
+     PART-1-1.23256        0.0129447          23.8611          151.564       NO       
+     PART-1-1.23258        0.0146703          17.0638          146.627       NO       
+     PART-1-1.23261         0.019938          22.4883          145.703       NO       
+     PART-1-1.24566        0.0533889          15.1424          160.121       NO       
+     PART-1-1.24773        0.0157378          12.6425          162.923       NO       
+     PART-1-1.25049        0.0190107           15.294          161.479       NO       
+     PART-1-1.25499       0.00747549          12.8303          154.935       NO       
+     PART-1-1.26003        0.0137819          17.1571          159.948       NO       
+     PART-1-1.26164         0.149941          9.74752          164.535       NO       
+     PART-1-1.26183        0.0265125          12.2854          162.494       NO       
+     PART-1-1.26396       0.00560765          8.15822          162.847       NO       
+     PART-1-1.26418        0.0168667          15.8808          154.145       NO       
+     PART-1-1.27639         0.134529          9.39889          163.313       NO       
+     PART-1-1.27658        0.0130269          21.4337          158.626       NO       
+     PART-1-1.27737         0.214164          12.3926          160.459       NO       
+     PART-1-1.28755        0.0320928          11.8014          162.533       NO       
+     PART-1-1.28988        0.0190464          15.4071          161.039       NO       
+     PART-1-1.29070        0.0588917          13.4017          160.943       NO       
+     PART-1-1.29208        0.0163842           15.548          150.467       NO       
+     PART-1-1.29841         0.151696          9.24255          165.849       NO       
+     PART-1-1.30218        0.0431444          11.2992          162.403       NO       
+     PART-1-1.30419        0.0171785          16.0212          152.385       NO       
+     PART-1-1.30610        0.0269817          16.6099          160.052       NO       
+     PART-1-1.30961        0.0111569          15.1408          159.807       NO       
+     PART-1-1.31644        0.0134696           32.238          150.255       NO       
+     PART-1-1.31959        0.0396112          13.4061          161.103       NO       
+     PART-1-1.31977        0.0024712          10.1743          160.948       NO       
+     PART-1-1.31997        0.0123431          17.4067           159.42       NO       
+     PART-1-1.32590        0.0112125           34.133          153.286       NO       
+     PART-1-1.33146         0.095267          7.89703          160.627       NO       
+     PART-1-1.33295        0.0475458          13.5046          161.258       NO       
+     PART-1-1.34803        0.0764854          12.2927           161.25       NO       
+     PART-1-1.35058         0.052172          14.5256          160.684       NO       
+     PART-1-1.36417         0.043519          9.75497          165.161       NO       
+     PART-1-1.36852        0.0663094          10.1685          162.625       NO       
+     PART-1-1.38406        0.0086996          18.2716          158.268       NO       
+     PART-1-1.39225        0.0026046          9.81721          164.453       NO       
+     PART-1-1.39635        0.0379704          11.3035          162.476       NO       
+     PART-1-1.40458        0.0109201          15.1557          160.511       NO       
+     PART-1-1.40555       0.00562219          10.6954          156.124       NO       
+     PART-1-1.41075        0.0107142          20.3746          148.463       NO       
+     PART-1-1.41647        0.0604381          10.7387          162.272       NO       
+     PART-1-1.41832        0.0516141          12.5517          161.525       NO       
+     PART-1-1.42448        0.0169698          14.0765          162.418       NO       
+     PART-1-1.42815        0.0120445           15.988          151.081       NO       
+     PART-1-1.42846        0.0140991          12.5988          154.219       NO       
+     PART-1-1.43034         0.201666          11.9525          160.531       NO       
+     PART-1-1.43280        0.0130241          22.5188          146.288       NO       
+     PART-1-1.43334         0.201504          14.0211          160.234       NO       
+     PART-1-1.44237        0.0187757          16.0822          158.168       NO       
+     PART-1-1.44340         0.016554          12.6188          141.236       NO       
+     PART-1-1.44457        0.0138562          19.1956          156.294       NO       
+     PART-1-1.44748         0.052285          14.0245          160.322       NO       
+     PART-1-1.45028        0.0478775          10.1903          163.212       NO       
+     PART-1-1.45599         0.011139          8.57566          162.028       NO       
+     PART-1-1.45709         0.014298          22.6082           154.53       NO       
+     PART-1-1.45856        0.0155273          22.9004          151.046       NO       
+     PART-1-1.45985         0.142369           10.239           163.37       NO       
+     PART-1-1.46144       0.00458781          12.4838          158.979       NO       
+     PART-1-1.46826         0.163716          11.1185          160.886       NO       
+     PART-1-1.48096        0.0512627          13.5607          161.968       NO       
+     PART-1-1.49630        0.0286698          14.9875          160.915       NO       
+     PART-1-1.49718        0.0173525          16.0422          152.302       NO       
+     PART-1-1.49735        0.0143147          12.5857           155.63       NO       
+     PART-1-1.49792        0.0155755          22.5169          142.273       NO       
+     PART-1-1.50234       0.00930974          11.2413          152.228       NO       
+     PART-1-1.50256        0.0097857          15.0747          156.002       NO       
+     PART-1-1.50269       0.00747076          16.1486          159.063       NO       
+     PART-1-1.50860        0.0141096          12.6014          154.214       NO       
+     PART-1-1.50876        0.0120537          15.9915          151.077       NO       
+     PART-1-1.51130       1.7087E-26       7.0404E-06             180.       NO       
+     PART-1-1.51417      6.84865E-27      1.12296E-05             180.       NO       
+     PART-1-1.52098        0.0474207          11.4038          163.234       NO       
+     PART-1-1.52498        0.0160809          25.4638          150.824       NO       
+     PART-1-1.52692        0.0058348          10.8814          160.091       NO       
+     PART-1-1.52698        0.0186397          11.7828          154.726       NO       
+     PART-1-1.53013       0.00479035          9.80383          163.664       NO       
+     PART-1-1.55051        0.0111671           15.146          159.799       NO       
+     PART-1-1.55499        0.0260692          16.2752          160.128       NO       
+     PART-1-1.55962        0.0141032          12.5998          154.218       NO       
+     PART-1-1.55978        0.0120475          15.9893          151.079       NO       
+     PART-1-1.56931        0.0182401          11.4003           155.64       NO       
+     PART-1-1.57033        0.0156225          14.9662          162.272       NO       
+     PART-1-1.57715        0.0163635          19.8134          159.111       NO       
+     PART-1-1.58412         0.143959          8.79433          165.428       NO       
+     PART-1-1.58462         0.161072          10.9667          162.399       NO       
+     PART-1-1.58712        0.0109149           15.153          160.514       NO       
+     PART-1-1.58809       0.00473727          12.6191          161.357       NO       
+     PART-1-1.59254        0.0992259          13.7701          160.631       NO       
+     PART-1-1.59400        0.0362055          11.6281          163.551       NO       
+     PART-1-1.59559        0.0108224          15.1447          160.536       NO       
+     PART-1-1.59893        0.0194771          13.8982          148.069       NO       
+     PART-1-1.59894        0.0142013          15.2764          155.645       NO       
+     PART-1-1.59918         0.015263          29.5104           151.52       NO       
+  
+  
+  *Step, name=Step-1, nlgeom=NO, perturbation
+  *output, field, variable=PRESELECT
+  *Step, name=Step-1, nlgeom=NO, perturbation
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+  *Step, name=Step-1, nlgeom=NO, perturbation
+  *buckle
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *dsload
+
+ ***ERROR: THE SURFACE ASSEMBLY_TOP_SURFACE HAS NOT BEEN LOCATED
+ LINE IMAGE: ASSEMBLY_TOP_SURFACE, P, 1.
+  *output, field, variable=PRESELECT
+  *endstep
+  *Step, name=Step-1, nlgeom=NO, perturbation
+  *buckle
+  *buckle
+  *boundary, op=NEW, loadcase=1
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_BOTTOM_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *boundary, op=NEW, loadcase=2
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_BOTTOM_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *boundary, op=NEW, loadcase=1
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *boundary, op=NEW, loadcase=2
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *endstep
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                 60029
+          NUMBER OF ELEMENTS DEFINED BY THE USER AND *TIE       60027
+          NUMBER OF NODES IS                                    22232
+          NUMBER OF NODES DEFINED BY THE USER                   22232
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                66702
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+
+
+          THE PROGRAM HAS DISCOVERED    40 FATAL ERRORS
+
+               ** EXECUTION IS TERMINATED **
+
+ ***ERROR: Failed to locate set "ASSEMBLY_TOP_SET_PIN".
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   2.2000    
+       SYSTEM TIME (SEC)    =  0.90000    
+       TOTAL CPU TIME (SEC) =   3.1000    
+       WALLCLOCK TIME (SEC) =          3

@@ -1,0 +1,17 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB Buckling_job_6
+Abaqus 3DEXPERIENCE R2019x
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 8 tokens from Flexnet server coe-vtls1.engr.tamu.edu..
+<136 out of 160 licenses remain available>.
+Begin Analysis Input File Processor
+5/2/2020 12:30:29 AM
+Run pre.exe
+5/2/2020 12:30:35 AM
+Abaqus Error: Analysis Input File Processor exited with an error.
+Begin Convert MFS to SFS
+5/2/2020 12:30:36 AM
+Run SMASimUtility.exe
+5/2/2020 12:30:36 AM
+End Convert MFS to SFS
+Abaqus/Analysis exited with errors

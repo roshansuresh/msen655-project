@@ -1,0 +1,33 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2019 replay file
+# Internal Version: 2018_09_24-13.41.51 157541
+# Run by roshan94 on Sat May  2 00:25:00 2020
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(1.11979, 1.1169), width=164.833, 
+    height=110.796)
+session.viewports['Viewport: 1'].makeCurrent()
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+execfile('abaqus_fea_macro.py', __main__.__dict__)
+#: Abaqus Warning: The following input options are not supported by parallel execution of element operations: buckle. Only the solver will be executed in parallel for this analysis.
+#: Abaqus Warning: The following input options are not supported by parallel execution of element operations: buckle. Only the solver will be executed in parallel for this analysis.
+#: Abaqus Warning: The following input options are not supported by parallel execution of element operations: buckle. Only the solver will be executed in parallel for this analysis.
+#: Abaqus Warning: The following input options are not supported by parallel execution of element operations: buckle. Only the solver will be executed in parallel for this analysis.
+#: Model: H:/Desktop/MSEN 655 - Material Design Studio/python code/final bayesian optimization run/Buckling_job_6_3.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             2
+#: Number of Element Sets:       3
+#: Number of Node Sets:          2
+#: Number of Steps:              -1
+#* KeyError: Step-1
+#* File "abaqus_fea_macro.py", line 736, in <module>
+#*     Step = o1.steps['Step-1']

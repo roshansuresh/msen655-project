@@ -1,0 +1,1841 @@
+1
+
+   Abaqus 3DEXPERIENCE R2019x                                  Date 01-May-2020   Time 21:41:37
+   For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes SIMULIA Corp.
+                           1301 Atwood Avenue, Suite 101W
+                              Johnston, RI 02919, USA
+ 
+
+
+                   The Abaqus Software is available only under license
+                   from Dassault Systemes or its subsidiary and may be
+                   used or reproduced only in accordance with the terms
+                   of such license.
+ 
+                          On machine AERO-MJ09CBE4 
+                          you are authorized to run
+                          Abaqus/Standard until 11-Jul-2021
+
+                          Your site id is: 200000000002185 
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      http://www.3ds.com/products/simulia/locations/
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *               Abaqus 3DEXPERIENCE R2019x                * 
+                *                                                         * 
+                *          BUILD ID: 2018_09_24-13.41.51 157541           * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using                         * 
+                *  release 3DEXPERIENCE R2019x manuals                    * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *   This program may not be used for commercial purposes  * 
+                *           without payment of a commercial fee.          * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+ ***ERROR: in keyword *RIGIDBODY, file "Buckling_job_9_2.inp", line 70607: 
+           Unknown assembly set TOP_SET_PIN
+ ***NOTE: DUE TO AN INPUT ERROR THE ANALYSIS PRE-PROCESSOR HAS BEEN UNABLE TO 
+          INTERPRET SOME DATA.  SUBSEQUENT ERRORS MAY BE CAUSED BY THIS OMISSION
+
+ ***ERROR: in keyword *RIGIDBODY, file "Buckling_job_9_2.inp", line 70609: 
+           Unknown assembly set BOTTOM_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_9_2.inp", line 70631: 
+           Unknown assembly node set BOTTOM_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_9_2.inp", line 70633: 
+           Unknown assembly node set BOTTOM_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_9_2.inp", line 70636: 
+           Unknown assembly node set TOP_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_9_2.inp", line 70636: 
+           Unknown assembly node set TOP_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_9_2.inp", line 70639: 
+           Unknown assembly node set TOP_SET_PIN
+
+ ***ERROR: in keyword *BOUNDARY, file "Buckling_job_9_2.inp", line 70639: 
+           Unknown assembly node set TOP_SET_PIN
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Heading
+  *Node
+  *Element, type=C3D4
+  *Nset, nset=ASSEMBLY_PART-1-1_FIBRE_SET1
+  *Nset, nset=ASSEMBLY_PART-1-1_FIBRE_SET2
+  *Elset, elset=ASSEMBLY_PART-1-1_FIBRE_SET1
+  *Elset, elset=ASSEMBLY_PART-1-1_FIBRE_SET2
+  *Node
+  *Nset, nset=ASSEMBLY__PICKEDSET19
+  *Nset, nset=ASSEMBLY__PICKEDSET21
+
+ ***WARNING: BUCKLE OPTION IS NOT SUPPORTED FOR ELEMENT LOOP PARALLELIZATION. 
+             IF YOU HAVE SPECIFIED ELEMENT LOOP PARALLELIZATION, IT WILL BE 
+             TURNED OFF FOR THIS ANALYSIS.
+ LINE IMAGE: *buckle
+  *material, name=FIBRE_MATERIAL
+  *elastic
+  *material, name=MATRIX_MATERIAL
+  *elastic
+  *solidsection, elset=ASSEMBLY_PART-1-1_FIBRE_SET1, material=FIBRE_MATERIAL
+  *solidsection, elset=ASSEMBLY_PART-1-1_FIBRE_SET2, material=FIBRE_MATERIAL
+  *solidsection, elset=ASSEMBLY_PART-1-1_FIBRE_SET1, material=FIBRE_MATERIAL
+  *solidsection, elset=ASSEMBLY_PART-1-1_FIBRE_SET2, material=FIBRE_MATERIAL
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_TOP_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET19, 
+             pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_BOTTOM_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET21, 
+             pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: SURFACE DEFINITION ASSEMBLY_TOP_SURFACE NOT FOUND.
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_TOP_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET19, 
+             pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: UNABLE TO LOCATE NODE SET ASSEMBLY_BOTTOM_SET_PIN. THE NODE SET MUST 
+           HAVE BEEN PREVIOUSLY DEFINED. NODES IN THIS NODE SET WILL NOT BE 
+           PART OF RIGID BODY
+ LINE IMAGE: *rigidbody, refnode=ASSEMBLY__PICKEDSET21, 
+             pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET19, pinnset=ASSEMBLY_TOP_SET_PIN
+  *rigidbody, refnode=ASSEMBLY__PICKEDSET21, pinnset=ASSEMBLY_BOTTOM_SET_PIN
+  *output, field, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, field, variable=PRESELECT
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+  
+                               E L E M E N T   Q U A L I T Y  C H E C K S        
+  
+  
+ ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
+           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
+  
+           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
+           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
+           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
+           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
+           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
+           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
+  
+           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
+           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
+           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
+           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
+  
+           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
+           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
+           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
+           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
+           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
+           THAN 160 DEGREES. 
+  
+           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
+           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
+           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+
+ ***WARNING: 1462 elements are distorted. Either the isoparametric angles are 
+             out of the suggested limits or the triangular or tetrahedral 
+             quality measure is bad. The elements have been identified in 
+             element set WarnElemDistorted.
+
+ ***ERROR: The volume of 28 elements is zero, small, or negative. Check 
+           coordinates or node numbering, or modify the mesh seed. In the case 
+           of a tetrahedron this error may indicate that all nodes are located 
+           very nearly in a plane. The elements have been identified in element 
+           set ErrElemVolSmallNegZero.
+  
+ --------------------------------------------------------------------------------
+ Distorted tetrahedral elements
+  
+      Element       Quality measure     Min angle        Max angle     Adjusted nodes 
+ ------------------ ---------------- ---------------- ---------------- -------------- 
+       PART-1-1.168        0.0145855          29.8279          148.756       NO       
+       PART-1-1.170        0.0193897           17.914          153.278       NO       
+       PART-1-1.238       0.00169333          13.1517          163.648       NO       
+       PART-1-1.363        0.0157418          19.3048            152.3       NO       
+       PART-1-1.452       0.00587574          18.2317             161.       NO       
+       PART-1-1.591        0.0118944          16.3476          158.879       NO       
+       PART-1-1.614       0.00410178          18.1915          162.354       NO       
+       PART-1-1.616       0.00516729          17.0896           161.63       NO       
+       PART-1-1.634       0.00141619          1.48112          176.675       NO       
+       PART-1-1.946        0.0276456          9.78055          161.496       NO       
+       PART-1-1.993       0.00378518            25.58          158.376       NO       
+       PART-1-1.995        0.0038984          18.2496          162.525       NO       
+      PART-1-1.1026       0.00692107             11.1          163.201       NO       
+      PART-1-1.1040        0.0158877          30.1333          153.071       NO       
+      PART-1-1.1048       0.00540663          18.0654          161.198       NO       
+      PART-1-1.1154        0.0160254          11.1133          160.775       NO       
+      PART-1-1.1321      0.000612229          15.6214          167.433       NO       
+      PART-1-1.1325       0.00430278          19.1493          161.953       NO       
+      PART-1-1.1394        0.0181105          18.2705          156.752       NO       
+      PART-1-1.1418        0.0183761          22.3737          141.007       NO       
+      PART-1-1.1510       0.00245192          16.1509          164.204       NO       
+      PART-1-1.1564         0.013943          16.7624          161.374       NO       
+      PART-1-1.1618       0.00375023          18.9697          162.462       NO       
+      PART-1-1.1639       0.00271471          8.04804           167.03       NO       
+      PART-1-1.1674       0.00692592          30.3825          155.351       NO       
+      PART-1-1.1755        0.0146579          16.0919          154.137       NO       
+      PART-1-1.1856        0.0069708          18.3842          159.247       NO       
+      PART-1-1.1938        0.0103082          28.5454          148.251       NO       
+      PART-1-1.1941       0.00506648          19.3665          161.298       NO       
+      PART-1-1.2105        0.0113788          16.7385          158.663       NO       
+      PART-1-1.2206       0.00342378          18.0061          162.995       NO       
+      PART-1-1.2208       0.00901592          20.7202          146.088       NO       
+      PART-1-1.2337       0.00663081          16.4117          158.229       NO       
+      PART-1-1.2393       0.00378577           17.741          162.299       NO       
+      PART-1-1.2411       0.00377161          16.0647          156.562       NO       
+      PART-1-1.2418        0.0091311          12.1593          162.127       NO       
+      PART-1-1.2428       0.00194412          16.8785          161.084       NO       
+      PART-1-1.2693       0.00336175          18.6003          162.535       NO       
+      PART-1-1.2702       0.00222297          16.7728          164.384       NO       
+      PART-1-1.2727       0.00848832          16.4518          160.447       NO       
+      PART-1-1.2751       0.00391772          17.1819          162.685       NO       
+      PART-1-1.2803        0.0105058          12.3923          162.006       NO       
+      PART-1-1.2840       0.00646684          14.5755          159.269       NO       
+      PART-1-1.2863       0.00278885          21.6285          163.074       NO       
+      PART-1-1.2864       0.00586922          17.2144          161.078       NO       
+      PART-1-1.2907        0.0177354          20.3608           151.79       NO       
+      PART-1-1.2944         0.004383          18.0478          162.491       NO       
+      PART-1-1.3243       0.00352911          18.4183          162.801       NO       
+      PART-1-1.3480       0.00262056          11.2769          165.154       NO       
+      PART-1-1.3622       0.00939415          15.3119          160.161       NO       
+      PART-1-1.3751        0.0022581          12.1377          165.498       NO       
+      PART-1-1.3814        0.0068668            12.26          165.974       NO       
+      PART-1-1.3894       0.00613306          16.9423          161.371       NO       
+      PART-1-1.3907         0.106996          9.55848           157.75       NO       
+      PART-1-1.3980        0.0165655           17.877          157.148       NO       
+      PART-1-1.4070        0.0036468          18.2049          162.589       NO       
+      PART-1-1.4071        0.0193967          13.3229          159.542       NO       
+      PART-1-1.4204       0.00264002            18.58          159.488       NO       
+      PART-1-1.4300       0.00589295          12.1744          164.383       NO       
+      PART-1-1.4313        0.0169492          19.1199          156.514       NO       
+      PART-1-1.4463       0.00402072          17.3162          162.383       NO       
+      PART-1-1.4543        0.0026818          23.3192          162.051       NO       
+      PART-1-1.4575       0.00591591          15.0489          160.606       NO       
+      PART-1-1.4578       0.00933915          16.3223          158.342       NO       
+      PART-1-1.4579        0.0056111          16.1099          157.598       NO       
+      PART-1-1.4890        0.0153435          14.2203          159.602       NO       
+      PART-1-1.5020       0.00451746          17.4445          162.075       NO       
+      PART-1-1.5161       0.00690328          9.64529          163.739       NO       
+      PART-1-1.5244       0.00352287          23.7405          160.698       NO       
+      PART-1-1.5369         0.016578          22.8366          154.509       NO       
+      PART-1-1.5379        0.0060772           9.8928          163.909       NO       
+      PART-1-1.5422       0.00484137          17.8731          159.636       NO       
+      PART-1-1.5479       0.00251365          16.9262          163.871       NO       
+      PART-1-1.5676       0.00599916          24.7803           149.02       NO       
+      PART-1-1.5699       0.00192502          23.3828          163.782       NO       
+      PART-1-1.5790        0.0727299          10.6991          160.748       NO       
+      PART-1-1.6095        0.0134886          9.54549          160.507       NO       
+      PART-1-1.6147        0.0206438          10.8636          160.628       NO       
+      PART-1-1.6240       0.00322772          17.4757          162.965       NO       
+      PART-1-1.6312       0.00918144          14.2856          160.472       NO       
+      PART-1-1.6511       0.00360762          18.2127          162.613       NO       
+      PART-1-1.6516       0.00261042          17.3217          163.715       NO       
+      PART-1-1.6539        0.0126562          10.6737          161.793       NO       
+      PART-1-1.6587         0.013763          13.7304          156.733       NO       
+      PART-1-1.6596        0.0023061          11.8814          165.518       NO       
+      PART-1-1.6602       0.00317317          16.6166          162.755       NO       
+      PART-1-1.6731        0.0108935          17.7681          155.643       NO       
+      PART-1-1.6828       0.00341034          24.6012          161.534       NO       
+      PART-1-1.6847        0.0128297          16.4295          158.872       NO       
+      PART-1-1.6893        0.0113673          16.1908           159.08       NO       
+      PART-1-1.7132       0.00616421          18.3189          160.718       NO       
+      PART-1-1.7236       0.00486251          16.9202          160.787       NO       
+      PART-1-1.7301         0.013815          16.3493          151.243       NO       
+      PART-1-1.7395       0.00896359          14.1473          148.019       NO       
+      PART-1-1.7419        0.0572081          8.48829          163.753       NO       
+      PART-1-1.7460       0.00773603          14.6037          159.333       NO       
+      PART-1-1.7503        0.0139034          12.3768          160.922       NO       
+      PART-1-1.7574         0.018809          10.9864          161.192       NO       
+      PART-1-1.7608        0.0039723          18.7442          162.204       NO       
+      PART-1-1.7765       0.00180508          12.5478           160.94       NO       
+      PART-1-1.7799        0.0040694          14.7407           155.25       NO       
+      PART-1-1.7806       0.00859727          19.4904          157.166       NO       
+      PART-1-1.7864       0.00299016          9.77807           167.68       NO       
+      PART-1-1.7867        0.0120195          22.9546          154.553       NO       
+      PART-1-1.7954       0.00373583          17.0259          160.962       NO       
+      PART-1-1.7957        0.0036195          16.8913          162.877       NO       
+      PART-1-1.7964         0.166715          9.98033          152.732       NO       
+      PART-1-1.8019       0.00326388          16.7242           163.15       NO       
+      PART-1-1.8170       0.00311663          16.6812          162.736       NO       
+      PART-1-1.8197       0.00271719          16.7948          163.546       NO       
+      PART-1-1.8380       0.00941772          15.2278          156.036       NO       
+      PART-1-1.8393       0.00908829          11.2323          161.638       NO       
+      PART-1-1.8415       0.00399833          18.6624          162.183       NO       
+      PART-1-1.8420       0.00750103          16.4457          157.483       NO       
+      PART-1-1.8517        0.0116797          17.6319          158.729       NO       
+      PART-1-1.8575        0.0185147          18.5546          156.494       NO       
+      PART-1-1.8775        0.0201657          12.3861          160.288       NO       
+      PART-1-1.8779         0.205699          9.61349          148.134       NO       
+      PART-1-1.8944       0.00507691          16.5819          162.378       NO       
+      PART-1-1.8983       0.00606518          13.6166          160.163       NO       
+      PART-1-1.8991       0.00457421          9.32316          165.354       NO       
+      PART-1-1.8999       0.00330844          11.6498           164.02       NO       
+      PART-1-1.9025        0.0104029          20.6947          158.882       NO       
+      PART-1-1.9046        0.0129856          12.7953          160.303       NO       
+      PART-1-1.9358       0.00781373          22.1347          156.805       NO       
+      PART-1-1.9364       0.00908902          20.9547          154.138       NO       
+      PART-1-1.9466       0.00396101          17.2399           162.37       NO       
+      PART-1-1.9491        0.0135524          11.7096          162.307       NO       
+      PART-1-1.9529        0.0181849          18.3423          156.676       NO       
+      PART-1-1.9560          0.01487           14.443           159.69       NO       
+      PART-1-1.9638        0.0057517          13.4291          160.366       NO       
+      PART-1-1.9741       0.00723556           15.474          160.846       NO       
+      PART-1-1.9877       0.00330745          18.0352          162.714       NO       
+      PART-1-1.9885        0.0180185          18.6421          156.575       NO       
+      PART-1-1.9888       0.00240397           16.367          164.006       NO       
+      PART-1-1.9964        0.0112998          15.4008          159.356       NO       
+      PART-1-1.9989        0.0031806          18.0086          163.062       NO       
+     PART-1-1.10039       0.00207864           8.3085          167.507       NO       
+     PART-1-1.10041       0.00779724          17.0396          160.273       NO       
+     PART-1-1.10087       0.00417068          17.9384          162.106       NO       
+     PART-1-1.10102        0.0173594          17.8533           157.22       NO       
+     PART-1-1.10157       0.00207408          16.2604          164.414       NO       
+     PART-1-1.10473       0.00854417          10.8578           163.34       NO       
+     PART-1-1.10481         0.096687          9.50866          154.591       NO       
+     PART-1-1.10585        0.0126642          18.8062          153.258       NO       
+     PART-1-1.10630       0.00834948          19.6577          157.238       NO       
+     PART-1-1.10659       0.00521649          17.6305          161.251       NO       
+     PART-1-1.10662        0.0174824          11.6337          161.239       NO       
+     PART-1-1.10742        0.0023112          18.2669          163.461       NO       
+     PART-1-1.10924       0.00300535          18.9043          162.947       NO       
+     PART-1-1.11019       0.00808882          13.5158          159.433       NO       
+     PART-1-1.11053       0.00440537          18.0588          161.816       NO       
+     PART-1-1.11244       0.00292418          21.8174          161.549       NO       
+     PART-1-1.11249        0.0168158           16.491            158.9       NO       
+     PART-1-1.11261       0.00725521          25.6472          157.168       NO       
+     PART-1-1.11452          0.14539          11.1126          161.861       NO       
+     PART-1-1.11500         0.014947          25.7246          152.184       NO       
+     PART-1-1.11600        0.0128023          17.5991          158.357       NO       
+     PART-1-1.11641          0.01063          20.6274          159.467       NO       
+     PART-1-1.11708        0.0135114          18.4972          157.774       NO       
+     PART-1-1.11711       0.00412854          18.3106           162.26       NO       
+     PART-1-1.11914        0.0111746          16.2331          159.503       NO       
+     PART-1-1.11938       0.00341254          17.5053          162.666       NO       
+     PART-1-1.12034         0.142567          9.79551          159.408       NO       
+     PART-1-1.12086       0.00326675          16.7074          163.024       NO       
+     PART-1-1.12130       0.00412423          17.6195          162.188       NO       
+     PART-1-1.12227       0.00224479          11.9618          165.565       NO       
+     PART-1-1.12436        0.0036493           17.565          161.588       NO       
+     PART-1-1.12469         0.023075          10.8581          160.382       NO       
+     PART-1-1.12490        0.0104091          24.5501          151.244       NO       
+     PART-1-1.12550        0.0189635          28.1165          139.557       NO       
+     PART-1-1.12561        0.0130467          21.2861          154.896       NO       
+     PART-1-1.12627        0.0179658          19.0966          156.465       NO       
+     PART-1-1.12948         0.139837          9.80888          161.793       NO       
+     PART-1-1.13041       0.00449091          17.5521          162.015       NO       
+     PART-1-1.13082       0.00384734          17.6339          162.259       NO       
+     PART-1-1.13335       0.00320038          16.7502          162.663       NO       
+     PART-1-1.13345       0.00840211          13.7006           159.18       NO       
+     PART-1-1.13540       0.00669395          24.4441          157.423       NO       
+     PART-1-1.13559       0.00765893          19.9284           160.15       NO       
+     PART-1-1.13603        0.0192966          17.1485          151.008       NO       
+     PART-1-1.13607       0.00511349          14.5627           154.92       NO       
+     PART-1-1.13626       0.00739244          18.8369          153.865       NO       
+     PART-1-1.13659       0.00707637          20.1398          156.255       NO       
+     PART-1-1.13688        0.0195524          17.4645          150.991       NO       
+     PART-1-1.13715       0.00927293            17.48          154.596       NO       
+     PART-1-1.13731        0.0161583          21.0193          145.411       NO       
+     PART-1-1.13732        0.0131896          23.7087           153.76       NO       
+     PART-1-1.13737         0.011519          15.0612          153.491       NO       
+     PART-1-1.13750      0.000569555           12.768          164.786       NO       
+     PART-1-1.13753        0.0154378          21.4009          149.048       NO       
+     PART-1-1.13778      3.52795E-05          7.15875          169.738       NO       
+     PART-1-1.13783      0.000120015          8.21005          164.439       NO       
+     PART-1-1.13790       0.00396904          18.0439           158.57       NO       
+     PART-1-1.13839         0.007343          17.6664          154.767       NO       
+     PART-1-1.13840       0.00771078          19.7191          156.374       NO       
+     PART-1-1.13899       0.00344584          12.6688          152.349       NO       
+     PART-1-1.13903         0.011045           12.075          155.128       NO       
+     PART-1-1.13905         0.105264          10.7349          162.644       NO       
+     PART-1-1.13922        0.0131878          12.5782          152.138       NO       
+     PART-1-1.13925      0.000482775          13.3766          164.797       NO       
+     PART-1-1.13963       0.00147237          13.2739          160.206       NO       
+     PART-1-1.13972       0.00727668          13.2453          154.616       NO       
+     PART-1-1.13994        0.0143595          19.6224          149.675       NO       
+     PART-1-1.14012       0.00564018          18.4858          155.157       NO       
+     PART-1-1.14018        0.0112391          14.5474          152.774       NO       
+     PART-1-1.14112      0.000567952          13.7319          163.106       NO       
+     PART-1-1.14113        0.0116486           15.095          153.462       NO       
+     PART-1-1.14114      4.80129E-17        0.0032691           179.99       NO       
+     PART-1-1.14185       0.00717971          13.6356          154.525       NO       
+     PART-1-1.14189       0.00141067          12.2986          161.084       NO       
+     PART-1-1.14190       4.2531E-05          8.94258          170.604       NO       
+     PART-1-1.14191        0.0129295           24.041          153.385       NO       
+     PART-1-1.14348      3.96733E-18      0.000729407          179.999       NO       
+     PART-1-1.14377        0.0123927          14.3711          154.013       NO       
+     PART-1-1.14384        0.0172407          14.6977           149.98       NO       
+     PART-1-1.14428      0.000122733           7.7376          166.667       NO       
+     PART-1-1.14429        0.0152619          21.3578          149.162       NO       
+     PART-1-1.14445       0.00980117          20.4913          155.653       NO       
+     PART-1-1.14460      0.000164063          8.95827           166.62       NO       
+     PART-1-1.14499       0.00142509          13.2328          160.271       NO       
+     PART-1-1.14500        0.0160091          22.3448            152.9       NO       
+     PART-1-1.14503       0.00134529          13.4724          162.046       NO       
+     PART-1-1.14508       0.00682421           19.787           153.65       NO       
+     PART-1-1.14512       0.00751181           21.025          156.893       NO       
+     PART-1-1.14520         0.007636           20.438          155.752       NO       
+     PART-1-1.14551       0.00162228          15.7307          160.818       NO       
+     PART-1-1.14554       0.00821647          20.0551          155.802       NO       
+     PART-1-1.14560       0.00853333          19.4049          152.891       NO       
+     PART-1-1.14561       0.00705435          15.1817          155.266       NO       
+     PART-1-1.14567       0.00020824          11.4323          167.255       NO       
+     PART-1-1.14595       0.00151237          12.4901          160.887       NO       
+     PART-1-1.14608      0.000568398          13.5218          165.631       NO       
+     PART-1-1.14624       0.00833819          20.9768          155.165       NO       
+     PART-1-1.14668       0.00690538          15.1155          155.065       NO       
+     PART-1-1.14796         0.011856            13.92          150.069       NO       
+     PART-1-1.14798        0.0053868           18.674           155.49       NO       
+     PART-1-1.14802       0.00814402          20.9998          155.163       NO       
+     PART-1-1.14821       0.00784831           14.096          152.462       NO       
+     PART-1-1.14835       0.00189217          8.16181          167.295       NO       
+     PART-1-1.14849       0.00727907           13.518          159.744       NO       
+     PART-1-1.14930       0.00904077           17.049           153.75       NO       
+     PART-1-1.14945       0.00579397          12.1891          158.049       NO       
+     PART-1-1.14948        0.0153042          15.9467          147.578       NO       
+     PART-1-1.14989      1.45079E-19      0.000317875          179.999       NO       
+     PART-1-1.15012       0.00811502          14.0359          153.939       NO       
+     PART-1-1.15026       0.00553611          14.1918            159.3       NO       
+     PART-1-1.15030        0.0276462          9.68701          160.071       NO       
+     PART-1-1.15068       4.9323E-05          9.28913          170.944       NO       
+     PART-1-1.15076      0.000498775          13.1908          164.828       NO       
+     PART-1-1.15077      0.000256018          12.0592          165.618       NO       
+     PART-1-1.15079      0.000198603          11.1707          168.418       NO       
+     PART-1-1.15080        0.0105005          22.6944          155.174       NO       
+     PART-1-1.15129       0.00967198          17.1974          150.776       NO       
+     PART-1-1.15135       0.00569242          10.9924          156.307       NO       
+     PART-1-1.15151        0.0892885          4.99625           167.28       NO       
+     PART-1-1.15193        0.0183812          15.2012          149.718       NO       
+     PART-1-1.15277        0.0230206          8.28202          159.939       NO       
+     PART-1-1.15278      1.44992E-19      0.000317863          179.999       NO       
+     PART-1-1.15374      1.20531E-18      0.000540145          179.999       NO       
+     PART-1-1.15404        0.0114891          18.3958            152.8       NO       
+     PART-1-1.15421       0.00985658          18.0103          153.527       NO       
+     PART-1-1.15433       0.00519594          16.4057           154.28       NO       
+     PART-1-1.15434       0.00489812          15.0917          154.824       NO       
+     PART-1-1.15443       0.00956404          23.3312          155.292       NO       
+     PART-1-1.15459       0.00676219          19.0458          154.002       NO       
+     PART-1-1.15469      2.52459E-18      0.000649075          179.999       NO       
+     PART-1-1.15507         0.017736          21.1756           144.71       NO       
+     PART-1-1.15573      5.75437E-20      0.000253237             180.       NO       
+     PART-1-1.15579         0.015325          15.6453          148.451       NO       
+     PART-1-1.15580        0.0120872          23.4694           153.96       NO       
+     PART-1-1.15582       0.00565028          15.3094          155.995       NO       
+     PART-1-1.15610       0.00151663          7.92971          167.651       NO       
+     PART-1-1.15615       0.00669359          17.8644          155.083       NO       
+     PART-1-1.15625       0.00819847          19.9758          155.993       NO       
+     PART-1-1.15640      3.16725E-18      0.000687721          179.999       NO       
+     PART-1-1.15692       0.00927336          20.0654          149.494       NO       
+     PART-1-1.15707        0.0092205          16.8372          153.812       NO       
+     PART-1-1.15744       0.00560225          15.6862          155.885       NO       
+     PART-1-1.15747       0.00849078          14.7741          148.555       NO       
+     PART-1-1.15748       0.00441775          19.5649           155.72       NO       
+     PART-1-1.15750       0.00770978          18.3771          155.215       NO       
+     PART-1-1.15755         0.011892            24.69           153.12       NO       
+     PART-1-1.15759        0.0161245          14.0662          148.431       NO       
+     PART-1-1.15766          0.01357          13.5251          155.194       NO       
+     PART-1-1.15770        0.0115347          18.1566          149.319       NO       
+     PART-1-1.15772       0.00974664          12.9976          153.716       NO       
+     PART-1-1.15781          0.00611          10.3079          163.923       NO       
+     PART-1-1.15795       0.00733146          20.1313          153.116       NO       
+     PART-1-1.15818       0.00718749          15.0053          155.809       NO       
+     PART-1-1.15822        0.0168334          24.1081          152.867       NO       
+     PART-1-1.15841        0.0150318          16.4526          152.173       NO       
+     PART-1-1.15852        0.0153352           22.288          152.739       NO       
+     PART-1-1.15853       0.00440576          15.6154          157.713       NO       
+     PART-1-1.15943       0.00552774          14.1887          159.306       NO       
+     PART-1-1.15944        0.0276753          9.68931          160.063       NO       
+     PART-1-1.15979       0.00152565          13.2158          161.304       NO       
+     PART-1-1.16031        0.0160726          21.0161          145.469       NO       
+     PART-1-1.16083       0.00191242          16.0213          159.987       NO       
+     PART-1-1.16084       0.00982368          22.7305          151.041       NO       
+     PART-1-1.16104       0.00181094           14.979          159.092       NO       
+     PART-1-1.16105        0.0166978          15.2896          150.089       NO       
+     PART-1-1.16106       0.00615291          15.8516          155.365       NO       
+     PART-1-1.16114       0.00276021          14.3511          158.404       NO       
+     PART-1-1.16117       0.00916235          15.0761          157.695       NO       
+     PART-1-1.16124        0.0146775          18.1375          149.894       NO       
+     PART-1-1.16125        0.0129788          20.2748          150.973       NO       
+     PART-1-1.16389       0.00845597          30.4581          154.659       NO       
+     PART-1-1.16392      1.39419E-22      0.000205071             180.       NO       
+     PART-1-1.16397      1.28006E-22      0.000251973             180.       NO       
+     PART-1-1.16473        0.0507358            7.729           163.54       NO       
+     PART-1-1.16565        0.0828807          9.71514          164.861       NO       
+     PART-1-1.16622       0.00552868          14.1896          159.306       NO       
+     PART-1-1.16658       0.00616617          14.5915          158.451       NO       
+     PART-1-1.16659          0.02318          9.05245          161.214       NO       
+     PART-1-1.16667        0.0276579          9.68888          160.064       NO       
+     PART-1-1.16705        0.0059397          11.7485          155.041       NO       
+     PART-1-1.16714        0.0187894          21.2917          148.257       NO       
+     PART-1-1.16715        0.0103168          23.2128          155.467       NO       
+     PART-1-1.16751       0.00553345          14.1921          159.302       NO       
+     PART-1-1.16760        0.0276552          9.68799          160.067       NO       
+     PART-1-1.16789       0.00642746          15.4879          155.189       NO       
+     PART-1-1.16790        0.0153435          15.1852          148.965       NO       
+     PART-1-1.16795        0.0149794          20.7247          146.092       NO       
+     PART-1-1.16809       0.00852488          17.4934          154.056       NO       
+     PART-1-1.16904        0.0158528          24.3452          153.151       NO       
+     PART-1-1.17017      0.000470436           10.363          164.126       NO       
+     PART-1-1.17020       0.00449768          11.7637          162.008       NO       
+     PART-1-1.17024       0.00493859          12.0212          161.688       NO       
+     PART-1-1.17041       0.00337901          19.3802          159.557       NO       
+     PART-1-1.17115        0.0111119           21.614          154.176       NO       
+     PART-1-1.17124        0.0132828          18.9703          151.527       NO       
+     PART-1-1.17166        0.0122721          14.7374           149.03       NO       
+     PART-1-1.17172       0.00580467          19.2783           154.75       NO       
+     PART-1-1.17182       0.00999391          19.2007          149.449       NO       
+     PART-1-1.17194       0.00704438          18.7274          154.051       NO       
+     PART-1-1.17195         0.016764          18.9139          146.716       NO       
+     PART-1-1.17199       0.00837394          18.3496          150.865       NO       
+     PART-1-1.17204        0.0118426          18.7286          151.647       NO       
+     PART-1-1.17206       0.00815764          20.4696          155.994       NO       
+     PART-1-1.17277        0.0872845          9.96196          164.062       NO       
+     PART-1-1.17298        0.0026171          15.7178          159.626       NO       
+     PART-1-1.17388        0.0198942          15.4785          143.001       NO       
+     PART-1-1.17402        0.0196344          13.8469          156.821       NO       
+     PART-1-1.17488       0.00258911          13.0347          153.891       NO       
+     PART-1-1.17497       0.00148359          16.4381          160.611       NO       
+     PART-1-1.17499       0.00227267          10.8771          159.971       NO       
+     PART-1-1.17503      0.000464421          10.3141          164.272       NO       
+     PART-1-1.17508       0.00398284          13.0156          151.855       NO       
+     PART-1-1.17511       0.00379141          17.9546          158.721       NO       
+     PART-1-1.17532       0.00307292          15.5597          156.777       NO       
+     PART-1-1.17536       0.00175544          10.5273           160.52       NO       
+     PART-1-1.17540        0.0112677           14.054          152.116       NO       
+     PART-1-1.17542       0.00884114          21.9391          156.048       NO       
+     PART-1-1.17548      0.000169323          9.05538          166.671       NO       
+     PART-1-1.17550       0.00298045          14.5331          158.062       NO       
+     PART-1-1.17552        0.0158897          18.3833          149.477       NO       
+     PART-1-1.17580        0.0181391          16.2726           147.11       NO       
+     PART-1-1.17595        0.0825167           9.7092          164.875       NO       
+     PART-1-1.17609       0.00745941          13.5676          159.639       NO       
+     PART-1-1.17630        0.0160665          17.2972           155.25       NO       
+     PART-1-1.17691        0.0119556          18.0835          151.839       NO       
+     PART-1-1.17708       0.00183302          16.0704          160.197       NO       
+     PART-1-1.17725        0.0134885          18.3711          151.982       NO       
+     PART-1-1.17736        0.0517524          7.72662          163.537       NO       
+     PART-1-1.17743      3.43407E-21      0.000302097          179.999       NO       
+     PART-1-1.17758       0.00596369           14.464          156.137       NO       
+     PART-1-1.17884       0.00833488          15.1531          154.706       NO       
+     PART-1-1.17926        0.0161108          17.3093          155.239       NO       
+     PART-1-1.18042       0.00792022          19.8336          156.301       NO       
+     PART-1-1.18106      0.000125529           8.2725          164.459       NO       
+     PART-1-1.18115       0.00136205           13.001          160.662       NO       
+     PART-1-1.18124       0.00536785          14.4512          156.613       NO       
+     PART-1-1.18154       0.00624121          14.6655          156.103       NO       
+     PART-1-1.18156        0.0199819          15.2059          149.591       NO       
+     PART-1-1.18193       0.00950149          22.4638          155.382       NO       
+     PART-1-1.18195      1.89621E-18       0.00145704          179.996       NO       
+     PART-1-1.18196       9.8363E-05           10.457          169.761       NO       
+     PART-1-1.18207       0.00278103          14.6026          158.279       NO       
+     PART-1-1.18208       0.00804666          21.7227          156.243       NO       
+     PART-1-1.18215        0.0127994          17.7675          150.927       NO       
+     PART-1-1.18225       0.00715069          18.7457          154.106       NO       
+     PART-1-1.18232       0.00479088          16.4599          154.847       NO       
+     PART-1-1.18241        0.0121622          25.6174          148.463       NO       
+     PART-1-1.18245        0.0128865          20.7956          149.911       NO       
+     PART-1-1.18377       0.00928598          19.0694          152.732       NO       
+     PART-1-1.18423       0.00794216          20.3525           155.72       NO       
+     PART-1-1.18424      0.000530376          10.2344          162.194       NO       
+     PART-1-1.18434       0.00493693          14.5645          156.426       NO       
+     PART-1-1.18496       0.00526224          18.5369          155.361       NO       
+     PART-1-1.18499        0.0164324          19.6977          146.182       NO       
+     PART-1-1.18521        0.0061177          16.6734          153.936       NO       
+     PART-1-1.18522        0.0154286          18.2918          150.597       NO       
+     PART-1-1.18551       0.00107462          14.4124           160.94       NO       
+     PART-1-1.18552      0.000479635          12.6195           165.23       NO       
+     PART-1-1.18556       0.00281423          12.6767          157.275       NO       
+     PART-1-1.18561        0.0174738          14.7709          149.991       NO       
+     PART-1-1.18570      0.000793769          14.6679          165.036       NO       
+     PART-1-1.18573       0.00661787          14.9652           155.39       NO       
+     PART-1-1.18574         0.017779          19.5142          150.246       NO       
+     PART-1-1.18590       0.00793353          20.7301          155.567       NO       
+     PART-1-1.18600       0.00101293          14.2781          162.777       NO       
+     PART-1-1.18602        0.0177275          19.2824          150.111       NO       
+     PART-1-1.18604       0.00177049          16.6394          162.479       NO       
+     PART-1-1.18608       0.00124465          16.0344          162.703       NO       
+     PART-1-1.18609       0.00188009           11.353          157.398       NO       
+     PART-1-1.18610       0.00789615          14.5135          153.258       NO       
+     PART-1-1.18612       0.00690658          17.2996          155.278       NO       
+     PART-1-1.18614      0.000970265          11.5491          162.385       NO       
+     PART-1-1.18616        0.0150138          18.6758          151.086       NO       
+     PART-1-1.18649       0.00949576          15.2355          157.353       NO       
+     PART-1-1.18663      0.000592376          10.2601          161.999       NO       
+     PART-1-1.18671       0.00297274          12.5908          154.481       NO       
+     PART-1-1.18675       0.00185341          13.3957          159.337       NO       
+     PART-1-1.18684       0.00582166          12.9854          156.328       NO       
+     PART-1-1.18685        0.0069006          13.5523          151.337       NO       
+     PART-1-1.18695       0.00585069          18.6687            157.7       NO       
+     PART-1-1.18707        0.0015753           10.978          159.771       NO       
+     PART-1-1.18709       0.00158135          15.5025          162.931       NO       
+     PART-1-1.18717        0.0170036          25.3827          151.811       NO       
+     PART-1-1.18722       0.00569084          13.0649          153.342       NO       
+     PART-1-1.18731       0.00236416          14.6589           158.82       NO       
+     PART-1-1.18734       0.00800976          16.4718          153.779       NO       
+     PART-1-1.18785        0.0089052          15.0131          158.121       NO       
+     PART-1-1.18819       0.00721572           19.864          156.506       NO       
+     PART-1-1.18843       0.00018762          8.48477          165.229       NO       
+     PART-1-1.19099      1.98448E-18      0.000613434          179.999       NO       
+     PART-1-1.19108       0.00056663          10.1686          162.254       NO       
+     PART-1-1.19111      1.02544E-16       0.00254772          179.996       NO       
+     PART-1-1.19161        0.0110586           22.995          154.784       NO       
+     PART-1-1.19172        0.0128007          19.3656          154.174       NO       
+     PART-1-1.19240        0.0110729          22.8248          154.565       NO       
+     PART-1-1.19415      0.000527697          12.8331          164.894       NO       
+     PART-1-1.19436       0.00195464          11.5417          156.973       NO       
+     PART-1-1.19463       0.00469633          13.4991          160.792       NO       
+     PART-1-1.19538        0.0174696          23.5766          146.901       NO       
+     PART-1-1.19562        0.0128316          23.8892          153.565       NO       
+     PART-1-1.19609        0.0163885          14.9181          150.173       NO       
+     PART-1-1.19613        0.0123439          16.1104          153.733       NO       
+     PART-1-1.19618       0.00632468          20.1007          156.556       NO       
+     PART-1-1.19664        0.0141356          20.2409          153.333       NO       
+     PART-1-1.19685      0.000603328          11.7094          163.944       NO       
+     PART-1-1.19710        0.0137612          19.2945          150.506       NO       
+     PART-1-1.19713      0.000169335          8.83438          162.317       NO       
+     PART-1-1.19714       0.00771223          14.0511          153.948       NO       
+     PART-1-1.19718       0.00546654          18.1602          152.877       NO       
+     PART-1-1.19719        0.0161345          21.3402           145.18       NO       
+     PART-1-1.19721       0.00876217           16.788          151.567       NO       
+     PART-1-1.19726       0.00930895          20.4881          148.918       NO       
+     PART-1-1.19740       0.00242392          15.2364          160.229       NO       
+     PART-1-1.19758      0.000891703          14.7899          164.848       NO       
+     PART-1-1.19766       0.00517992          18.9052          153.161       NO       
+     PART-1-1.19773       0.00252877          15.9799          153.254       NO       
+     PART-1-1.19780        0.0110025          15.5293          147.753       NO       
+     PART-1-1.19813        0.0134025          20.2563          150.482       NO       
+     PART-1-1.19868       0.00943926          22.3872          155.812       NO       
+     PART-1-1.19930        0.0147248          23.8835          153.594       NO       
+     PART-1-1.20049        0.0184819          13.5951          151.446       NO       
+     PART-1-1.20056        0.0185934          22.5651          152.246       NO       
+     PART-1-1.20102       0.00541568          20.9791          156.222       NO       
+     PART-1-1.20123          0.01134          17.8168          152.707       NO       
+     PART-1-1.20134       0.00257989          13.1545          153.517       NO       
+     PART-1-1.20139       0.00150377          13.5072          159.937       NO       
+     PART-1-1.20143       0.00149526          16.6776          160.486       NO       
+     PART-1-1.20149        0.0115091          23.1261           154.79       NO       
+     PART-1-1.20167        0.0113695          13.8185          152.708       NO       
+     PART-1-1.20180       0.00162572          10.2244          160.941       NO       
+     PART-1-1.20187        0.0183116          19.0117          148.397       NO       
+     PART-1-1.20192       0.00811696          13.6697          153.555       NO       
+     PART-1-1.20200       0.00318952           14.643          157.613       NO       
+     PART-1-1.20228       0.00743298           19.299          153.562       NO       
+     PART-1-1.20244      0.000395208          10.2297          164.719       NO       
+     PART-1-1.20255       0.00180212          11.5809          159.352       NO       
+     PART-1-1.20278       0.00187151          10.4074          160.901       NO       
+     PART-1-1.20282       0.00055141          12.9264          166.148       NO       
+     PART-1-1.20326         0.014932          23.8346          153.529       NO       
+     PART-1-1.20336       0.00129163          13.4627          162.242       NO       
+     PART-1-1.20342        0.0167936          15.9466           148.39       NO       
+     PART-1-1.20362        0.0082271            16.74          155.346       NO       
+     PART-1-1.20375      7.78162E-05          7.24986          167.581       NO       
+     PART-1-1.20389       0.00734257          18.3506          154.273       NO       
+     PART-1-1.20392        0.0184729          14.0496          150.904       NO       
+     PART-1-1.20410       0.00579877          19.1332          152.291       NO       
+     PART-1-1.20416      4.28466E-21      0.000723893          179.999       NO       
+     PART-1-1.20419       0.00739551          14.8386          152.476       NO       
+     PART-1-1.20428        0.0109171           20.068           151.29       NO       
+     PART-1-1.20432         0.018524           15.924          145.314       NO       
+     PART-1-1.20496        0.0192782          15.1057          149.533       NO       
+     PART-1-1.20575         0.014943          20.9105          154.099       NO       
+     PART-1-1.20636       0.00460225           13.406          160.864       NO       
+     PART-1-1.20671        0.0140257          15.6073           148.58       NO       
+     PART-1-1.20685       0.00198483          12.4262           155.11       NO       
+     PART-1-1.20693       9.7117E-05          10.3604           169.77       NO       
+     PART-1-1.20695      6.66875E-05          7.86486          168.625       NO       
+     PART-1-1.20704        0.0160362          21.8815          148.129       NO       
+     PART-1-1.20739        0.0142177          23.9761          153.436       NO       
+     PART-1-1.20742       0.00872204          20.0764          149.579       NO       
+     PART-1-1.20765       0.00536121          22.6603          159.993       NO       
+     PART-1-1.20774        0.0131354          15.7074          153.585       NO       
+     PART-1-1.20803      0.000401247          10.2386          164.453       NO       
+     PART-1-1.20830       0.00605729          15.5864          155.414       NO       
+     PART-1-1.20852       0.00251378          18.1173          160.485       NO       
+     PART-1-1.20908       0.00232513           16.198          157.472       NO       
+     PART-1-1.20921       0.00161754          15.4893          162.658       NO       
+     PART-1-1.20928        0.0210968          11.9516          161.308       NO       
+     PART-1-1.20940        0.0118187          11.3274          162.419       NO       
+     PART-1-1.20965        0.0124603          14.5423           150.45       NO       
+     PART-1-1.20974        0.0133456          22.7902          154.563       NO       
+     PART-1-1.20999       0.00520629          14.8102          156.154       NO       
+     PART-1-1.21166      0.000432267          11.5588          164.694       NO       
+     PART-1-1.21202         0.011978          23.8727          154.967       NO       
+     PART-1-1.21218        0.0119596          20.5036           147.62       NO       
+     PART-1-1.21248       0.00787986          13.3956          154.726       NO       
+     PART-1-1.21357         0.009653          17.4597          153.336       NO       
+     PART-1-1.21559      0.000188126          11.2073          168.541       NO       
+     PART-1-1.21565        0.0016737          11.4617          159.164       NO       
+     PART-1-1.21568       0.00488181          14.5846          156.942       NO       
+     PART-1-1.21570      0.000879056          10.7462          159.315       NO       
+     PART-1-1.21578        0.0140315          22.2434          149.545       NO       
+     PART-1-1.21592      2.19499E-20      0.000199191             180.       NO       
+     PART-1-1.21664        0.0230636          12.5109          160.375       NO       
+     PART-1-1.21681       0.00552113          14.1877          159.311       NO       
+     PART-1-1.21687        0.0276724          9.69066          160.058       NO       
+     PART-1-1.21698        0.0148485          16.1109          147.484       NO       
+     PART-1-1.21700       0.00720171           20.179           153.12       NO       
+     PART-1-1.21785        0.0507895          7.71941          163.547       NO       
+     PART-1-1.21791        0.0823949          9.70519          164.882       NO       
+     PART-1-1.21815       0.00593717          19.4499          157.534       NO       
+     PART-1-1.21821       0.00197373          13.7478           160.55       NO       
+     PART-1-1.21825       0.00131047          12.2066          161.458       NO       
+     PART-1-1.21860       0.00362981          13.0666           154.51       NO       
+     PART-1-1.21896        0.0172254          15.9139          147.752       NO       
+     PART-1-1.21898       0.00540983          14.7034           155.82       NO       
+     PART-1-1.21904        0.0043535          18.6957          158.882       NO       
+     PART-1-1.21938      4.59118E-18      0.000755381          179.999       NO       
+     PART-1-1.22034       0.00718952          20.0792          156.494       NO       
+     PART-1-1.22038       0.00104583          14.3003           164.29       NO       
+     PART-1-1.22039      0.000552225          11.7769          164.248       NO       
+     PART-1-1.22040      0.000123055           10.134          169.617       NO       
+     PART-1-1.22041        0.0014714          11.6784          155.895       NO       
+     PART-1-1.22042       0.00104188          10.3822           161.38       NO       
+     PART-1-1.22043       0.00130481          15.7523          162.721       NO       
+     PART-1-1.22049        0.0181475          21.0288          144.749       NO       
+     PART-1-1.22050       0.00792134          13.8961          153.995       NO       
+     PART-1-1.22051       0.00950726          19.2324          149.607       NO       
+     PART-1-1.22120       0.00130531          11.6752          156.158       NO       
+     PART-1-1.22141       0.00853547          14.1703          153.416       NO       
+     PART-1-1.22148       0.00181046           15.757          160.341       NO       
+     PART-1-1.22149        0.0114573          15.3261          148.361       NO       
+     PART-1-1.22150       0.00740248          20.4981          156.363       NO       
+     PART-1-1.22159       0.00284798          17.5503          160.238       NO       
+     PART-1-1.22160       0.00311992          12.9965          153.927       NO       
+     PART-1-1.22162       0.00118613          14.7742          160.452       NO       
+     PART-1-1.22165       0.00238154          17.8032          160.807       NO       
+     PART-1-1.22180        0.0039779          17.9101          154.521       NO       
+     PART-1-1.22182        0.0121085          15.5175          147.754       NO       
+     PART-1-1.22183       0.00738281          20.2647          156.434       NO       
+     PART-1-1.22184       0.00846394          20.5573          155.651       NO       
+     PART-1-1.22246       0.00779865          17.2789          155.303       NO       
+     PART-1-1.22247       0.00575506          19.2229          154.636       NO       
+     PART-1-1.22250        0.0102455          20.1254          148.721       NO       
+     PART-1-1.22342       0.00323862             18.9          159.649       NO       
+     PART-1-1.22343       0.00127692          13.3528            161.1       NO       
+     PART-1-1.22344       0.00799947          17.2595          154.555       NO       
+     PART-1-1.22346       0.00414041          13.4151          153.296       NO       
+     PART-1-1.22347       0.00413129          18.7962          158.524       NO       
+     PART-1-1.22348       0.00411538          13.5247          155.571       NO       
+     PART-1-1.22392        0.0161093          17.3082          155.239       NO       
+     PART-1-1.22458       0.00910127           19.709          149.676       NO       
+     PART-1-1.22491        0.0107731          18.5911          149.413       NO       
+     PART-1-1.22511        0.0146896          18.4025          151.829       NO       
+     PART-1-1.22528        0.0134004           20.256          147.038       NO       
+     PART-1-1.22608        0.0013946          13.5103          161.957       NO       
+     PART-1-1.22614       0.00433775          13.1953          151.457       NO       
+     PART-1-1.22651        0.0171378          18.6049          151.174       NO       
+     PART-1-1.22670       0.00178513          15.6496          162.329       NO       
+     PART-1-1.22671       0.00177559          11.4133          159.769       NO       
+     PART-1-1.22672       0.00825366          14.7982          150.272       NO       
+     PART-1-1.22674       0.00276792          16.6016          156.578       NO       
+     PART-1-1.22707        0.0198744          13.9972           151.53       NO       
+     PART-1-1.22710        0.0199967          22.7419          151.655       NO       
+     PART-1-1.22729       0.00282586          17.4836          160.242       NO       
+     PART-1-1.22730        0.0028398          12.6896          154.589       NO       
+     PART-1-1.22731       0.00838898          16.9758          154.409       NO       
+     PART-1-1.22758         0.099419          7.26511          159.567       NO       
+     PART-1-1.22805       0.00842264           7.5883          166.441       NO       
+     PART-1-1.22940      0.000519777          13.8178          165.582       NO       
+     PART-1-1.23006      0.000116438          10.9677          169.182       NO       
+     PART-1-1.23007      8.66001E-05          8.91249            168.5       NO       
+     PART-1-1.23014       0.00358745          15.2132          157.688       NO       
+     PART-1-1.23021       0.00290443          17.9065          160.982       NO       
+     PART-1-1.23022       0.00198572          15.4682          160.228       NO       
+     PART-1-1.23030        0.0111454          22.3131          154.542       NO       
+     PART-1-1.23077       0.00389166          17.7844          157.007       NO       
+     PART-1-1.23087       0.00530985          14.2334          150.708       NO       
+     PART-1-1.23088       0.00596606          20.1769          158.085       NO       
+     PART-1-1.23089       0.00353162          18.2697          159.175       NO       
+     PART-1-1.23091       0.00174405          11.9393          158.928       NO       
+     PART-1-1.23115       0.00717646          15.2141           154.76       NO       
+     PART-1-1.23121        0.0077502           14.506          153.049       NO       
+     PART-1-1.23123        0.0117715          23.6406          153.711       NO       
+     PART-1-1.23137       0.00778629          20.8096          155.643       NO       
+     PART-1-1.23179       0.00383759          12.5508          152.419       NO       
+     PART-1-1.23238      5.00806E-19       0.00104445          179.997       NO       
+     PART-1-1.23251       0.00615435           19.477          156.934       NO       
+     PART-1-1.23271       0.00614836          15.7715          155.251       NO       
+     PART-1-1.23329       0.00366578           34.912          158.292       NO       
+     PART-1-1.23374        0.0296124          8.46591           161.86       NO       
+     PART-1-1.23378       0.00401105          12.5425           155.44       NO       
+     PART-1-1.23397        0.0100026          19.5282          149.139       NO       
+     PART-1-1.23399      0.000517066          10.3388          164.043       NO       
+     PART-1-1.23401        0.0100063          19.4353          152.184       NO       
+     PART-1-1.23406       0.00101867          10.3818          159.858       NO       
+     PART-1-1.23414      0.000960389          15.3056          163.484       NO       
+     PART-1-1.23416      0.000667731          10.7823          163.644       NO       
+     PART-1-1.23542      8.93113E-21      0.000381716          179.999       NO       
+     PART-1-1.23544      2.48664E-18      0.000648311          179.999       NO       
+     PART-1-1.23570        0.0191956          19.7799          152.931       NO       
+     PART-1-1.23580        0.0129767          24.0588          153.264       NO       
+     PART-1-1.23588        0.0111152          19.8639          155.702       NO       
+     PART-1-1.23589        0.0188097          19.1346          145.886       NO       
+     PART-1-1.23591        0.0086305          17.4456          155.162       NO       
+     PART-1-1.23603         0.012892          23.5797          148.665       NO       
+     PART-1-1.23619        0.0073943          13.1109           155.37       NO       
+     PART-1-1.23643       0.00700554          16.2366          155.699       NO       
+     PART-1-1.23653      8.95107E-05           8.8133          168.426       NO       
+     PART-1-1.23658      0.000519773           13.122          164.718       NO       
+     PART-1-1.23661        0.0149676          15.2819          149.545       NO       
+     PART-1-1.23663        0.0014509          16.0546          162.652       NO       
+     PART-1-1.23665      0.000658053           14.205          165.417       NO       
+     PART-1-1.23674       0.00167951          15.9453          162.453       NO       
+     PART-1-1.23675       0.00780832           16.883          155.111       NO       
+     PART-1-1.23713       0.00294839          15.5081          156.957       NO       
+     PART-1-1.23726        0.0130827          19.4767           152.27       NO       
+     PART-1-1.23727        0.0116519          18.8438          153.259       NO       
+     PART-1-1.23760       0.00170326          15.2323          162.952       NO       
+     PART-1-1.23761       0.00257363          15.3407          157.595       NO       
+     PART-1-1.23835        0.0124493          7.64988          162.011       NO       
+     PART-1-1.23874       0.00150149          12.0197          161.134       NO       
+     PART-1-1.23900       0.00490749          12.1195          161.612       NO       
+     PART-1-1.23931       0.00783179          18.1943          157.771       NO       
+     PART-1-1.23969      0.000565524          9.90374          162.444       NO       
+     PART-1-1.23971       0.00245667          14.4173          159.503       NO       
+     PART-1-1.23973       0.00347012          12.7447          154.951       NO       
+     PART-1-1.23995       0.00949381          17.6173          154.546       NO       
+     PART-1-1.23996       0.00601358          15.5618          155.626       NO       
+     PART-1-1.24023        0.0047505          12.0066          161.679       NO       
+     PART-1-1.24082        0.0066282          14.9252          155.607       NO       
+     PART-1-1.24145      0.000914965          11.3872          162.534       NO       
+     PART-1-1.24146       0.00166328          16.4453          162.756       NO       
+     PART-1-1.24192       0.00603072          11.6478          159.214       NO       
+     PART-1-1.24281        0.0138009          24.0558          153.402       NO       
+     PART-1-1.24323       0.00228307          15.6157          162.051       NO       
+     PART-1-1.24342         0.103401          9.50352          157.021       NO       
+     PART-1-1.24353        0.0175852          16.8647          151.804       NO       
+     PART-1-1.24360       0.00225579          13.5429          158.708       NO       
+     PART-1-1.24365       0.00422964          19.9786           158.87       NO       
+     PART-1-1.24388       0.00224961          16.0851          157.854       NO       
+     PART-1-1.24417       0.00329622           15.691          158.086       NO       
+     PART-1-1.24424       0.00503948          13.1032          153.016       NO       
+     PART-1-1.24457      1.67385E-19      0.000793655          179.998       NO       
+     PART-1-1.24461       5.4127E-18      0.000786931          179.999       NO       
+     PART-1-1.24492       0.00619024          16.8459          155.926       NO       
+     PART-1-1.24546       0.00774995          20.2936           155.96       NO       
+     PART-1-1.24563        0.0112533          20.0919          148.165       NO       
+     PART-1-1.24605        0.0224464           12.042          161.123       NO       
+     PART-1-1.24611       0.00164093          11.3193          159.289       NO       
+     PART-1-1.24612       0.00169362          15.1951          159.226       NO       
+     PART-1-1.24817      9.00861E-05          9.81348          170.028       NO       
+     PART-1-1.24818       0.00890148          20.9068          155.006       NO       
+     PART-1-1.24822        0.0114028          9.49505          161.622       NO       
+     PART-1-1.24825        0.0130682          18.3888          148.578       NO       
+     PART-1-1.24855        0.0170718          16.7671          152.315       NO       
+     PART-1-1.24860       0.00729384          18.5355          154.056       NO       
+     PART-1-1.24887       0.00461971          8.85799          162.608       NO       
+     PART-1-1.24932        0.0148444          12.4306          153.966       NO       
+     PART-1-1.24954       0.00742747          21.1021          155.601       NO       
+     PART-1-1.25017        0.0157776          25.7937            151.4       NO       
+     PART-1-1.25039       0.00176299           15.086          162.968       NO       
+     PART-1-1.25045        0.0143955          10.3122          146.337       NO       
+     PART-1-1.25095       0.00587979          14.7776          156.244       NO       
+     PART-1-1.25099       0.00570067          16.6262          143.166       NO       
+     PART-1-1.25135         0.082636          9.70491          164.879       NO       
+     PART-1-1.25234        0.0077919          19.3581          156.593       NO       
+     PART-1-1.25280       0.00937077          19.8906          149.239       NO       
+     PART-1-1.25291        0.0168399          21.8101           147.88       NO       
+     PART-1-1.25376        0.0105739          19.4808          149.033       NO       
+     PART-1-1.25447        0.0507697          7.73029          163.529       NO       
+     PART-1-1.25530       0.00102269          13.0056          161.883       NO       
+     PART-1-1.25571        0.0078203          20.7289          155.648       NO       
+     PART-1-1.25727        0.0189376          16.5945          154.619       NO       
+     PART-1-1.25791      8.13587E-05           10.385          169.685       NO       
+     PART-1-1.25811       0.00559295          16.2765          156.619       NO       
+     PART-1-1.25816        0.0199565          23.3813          151.178       NO       
+     PART-1-1.25823       0.00731338           14.191          154.287       NO       
+     PART-1-1.25870        0.0139006           21.056          146.355       NO       
+     PART-1-1.25875        0.0157116          15.7659          148.075       NO       
+     PART-1-1.25889       0.00736189          19.8607          153.241       NO       
+     PART-1-1.25891        0.0111464          18.0229          153.027       NO       
+     PART-1-1.25901         0.012838          23.8216          153.539       NO       
+     PART-1-1.25902        0.0112236          23.4029            149.6       NO       
+     PART-1-1.25913       0.00841236          16.9824          154.267       NO       
+     PART-1-1.25930         0.011083          18.7908          149.053       NO       
+     PART-1-1.25933       0.00813359          13.1745           154.67       NO       
+     PART-1-1.25986       0.00691215          16.9765          155.629       NO       
+     PART-1-1.25989       0.00885855          14.6709          153.234       NO       
+     PART-1-1.25999         0.018244          15.3428          149.307       NO       
+     PART-1-1.26002       0.00880215          20.0994          149.517       NO       
+     PART-1-1.26006       0.00844704          21.0277          155.096       NO       
+     PART-1-1.26038        0.0818302          6.07986          164.091       NO       
+     PART-1-1.26058       0.00639463          16.6344          155.946       NO       
+     PART-1-1.26072      0.000567093          13.3706          165.828       NO       
+     PART-1-1.26087       0.00704219          14.1326          154.091       NO       
+     PART-1-1.26088       0.00806865          19.4039          150.362       NO       
+     PART-1-1.26132       0.00612508          13.8753          155.082       NO       
+     PART-1-1.26133       0.00823186          19.6253          150.061       NO       
+     PART-1-1.26189       0.00767119          13.4435          154.932       NO       
+     PART-1-1.26190        0.0112102          19.3755          148.573       NO       
+     PART-1-1.26209       0.00551155          14.1812           159.32       NO       
+     PART-1-1.26228      0.000347236          12.7517          164.673       NO       
+     PART-1-1.26229      0.000326578          9.39642          162.094       NO       
+     PART-1-1.26233       0.00341701          19.2259          159.741       NO       
+     PART-1-1.26239        0.0277105          9.69355          160.051       NO       
+     PART-1-1.26265         0.037883          6.05265          167.025       NO       
+     PART-1-1.26281       0.00486942          14.5806          156.286       NO       
+     PART-1-1.26289       0.00574762          16.5539          156.443       NO       
+     PART-1-1.26291       0.00835861          19.1233            153.1       NO       
+     PART-1-1.26327        0.0143597          15.5732          148.173       NO       
+     PART-1-1.26344         0.016933          14.5499          150.122       NO       
+     PART-1-1.26377       0.00713779          19.6494          153.476       NO       
+     PART-1-1.26489      8.29817E-05          10.1949          169.217       NO       
+     PART-1-1.26509        0.0192898          14.7812           154.03       NO       
+     PART-1-1.26620         0.017125          18.5618          150.588       NO       
+     PART-1-1.26633       0.00012035          10.8297          167.574       NO       
+     PART-1-1.26686        0.0146574          24.8884           152.71       NO       
+     PART-1-1.26687       0.00710086          16.1928          153.923       NO       
+     PART-1-1.26701        0.0054154          20.8119          156.274       NO       
+     PART-1-1.26837       0.00149153          15.9855          159.411       NO       
+     PART-1-1.26897       0.00479713          13.2899           160.87       NO       
+     PART-1-1.26926      1.05466E-18       0.00125833          179.996       NO       
+     PART-1-1.27027        9.766E-21      0.000162372             180.       NO       
+     PART-1-1.27072       0.00896912          13.7009          152.553       NO       
+     PART-1-1.27084       0.00307783          11.5212          158.862       NO       
+     PART-1-1.27103        0.0819143          9.70905          164.873       NO       
+     PART-1-1.27201       0.00708734          16.7652          156.249       NO       
+     PART-1-1.27265       0.00274918          13.1427          153.695       NO       
+     PART-1-1.27266       0.00156707          16.5515          160.392       NO       
+     PART-1-1.27267       0.00161305          16.1877          159.045       NO       
+     PART-1-1.27268       0.00245897           15.833          161.769       NO       
+     PART-1-1.27271       0.00244737          10.9917          159.698       NO       
+     PART-1-1.27272       0.00261333          18.6799           160.22       NO       
+     PART-1-1.27290        0.0158256          21.6471          148.311       NO       
+     PART-1-1.27291       0.00166111          10.4651          160.698       NO       
+     PART-1-1.27292       0.00166839          14.9454          163.149       NO       
+     PART-1-1.27356       0.00524099           7.6681          165.168       NO       
+     PART-1-1.27359        0.0115331          16.7258          158.279       NO       
+     PART-1-1.27364        0.0114133          7.97768          161.166       NO       
+     PART-1-1.27420        0.0095261          17.8701          154.447       NO       
+     PART-1-1.27439        0.0179725          24.3558          152.871       NO       
+     PART-1-1.27507         0.008978           19.006          152.795       NO       
+     PART-1-1.27559       0.00310063          17.2787          156.226       NO       
+     PART-1-1.27629      2.72558E-20      0.000209907             180.       NO       
+     PART-1-1.27700        0.0184995          24.8839          152.615       NO       
+     PART-1-1.27764       0.00163319          14.7627          163.362       NO       
+     PART-1-1.27765        0.0029855          15.2457          157.061       NO       
+     PART-1-1.27887        0.0154503          23.2612          151.786       NO       
+     PART-1-1.27994        0.0119022          22.2116          147.781       NO       
+     PART-1-1.27999       0.00373186          17.9373          154.767       NO       
+     PART-1-1.28007       0.00812652          21.5966           156.45       NO       
+     PART-1-1.28008        0.0177494          19.3475          146.094       NO       
+     PART-1-1.28009       0.00877412          19.4544          152.667       NO       
+     PART-1-1.28012        0.0159111          13.7618          151.459       NO       
+     PART-1-1.28144      6.13673E-19      0.000456492          179.999       NO       
+     PART-1-1.28145      1.00636E-23      9.00235E-05             180.       NO       
+     PART-1-1.28228      5.96059E-22      0.000250445             180.       NO       
+     PART-1-1.28237       0.00442846          17.5146          154.526       NO       
+     PART-1-1.28303       7.6836E-22       0.00020671          179.999       NO       
+     PART-1-1.28348        0.0011014          8.06696          167.498       NO       
+     PART-1-1.28357        0.0115253          16.2522          155.795       NO       
+     PART-1-1.28364        0.0137789          16.6966          155.218       NO       
+     PART-1-1.28444       0.00783376          18.1906          157.762       NO       
+     PART-1-1.28617      2.76724E-20      0.000210391             180.       NO       
+     PART-1-1.28623      3.82148E-22      0.000173696          179.999       NO       
+     PART-1-1.28626       0.00437485          12.9893          161.631       NO       
+     PART-1-1.28715       0.00110108          11.5952           156.31       NO       
+     PART-1-1.28724       0.00731351          19.7634          156.703       NO       
+     PART-1-1.28739       0.00456631          19.0941          158.429       NO       
+     PART-1-1.28848       0.00820879          19.5884          150.198       NO       
+     PART-1-1.28855        0.0119701           22.241          147.738       NO       
+     PART-1-1.28868        0.0138109          16.6729          155.212       NO       
+     PART-1-1.29022        0.0167898          15.1927          149.118       NO       
+     PART-1-1.29170        0.0198682          20.1189          149.439       NO       
+     PART-1-1.29186       0.00910179          19.3849          149.743       NO       
+     PART-1-1.29194        0.0168663          22.3877          151.858       NO       
+     PART-1-1.29220        0.0765561          8.98823          158.702       NO       
+     PART-1-1.29226         0.017532          23.4176          144.008       NO       
+     PART-1-1.29232        0.0135686          23.7256          152.141       NO       
+     PART-1-1.29276        0.0057406          11.0469          155.843       NO       
+     PART-1-1.29312      0.000593252          13.6947          165.492       NO       
+     PART-1-1.29344       0.00553639          14.1886          159.302       NO       
+     PART-1-1.29346        0.0276662          9.68703          160.073       NO       
+     PART-1-1.29356      0.000743569          14.8886          164.752       NO       
+     PART-1-1.29374       0.00136625          12.1488          160.933       NO       
+     PART-1-1.29412       0.00717787          16.2929          154.139       NO       
+     PART-1-1.29482       0.00887573          20.1234          155.666       NO       
+     PART-1-1.29486        0.0133121          19.8695          147.272       NO       
+     PART-1-1.29506        0.0185132          22.0684          147.151       NO       
+     PART-1-1.29674        0.0192731          22.7056          147.223       NO       
+     PART-1-1.29771        0.0137937          16.6676          155.215       NO       
+     PART-1-1.29853       0.00805522          9.37942          162.383       NO       
+     PART-1-1.29918        0.0542509           4.5475          170.423       NO       
+     PART-1-1.29958       0.00783178          18.1941           157.77       NO       
+     PART-1-1.29990        0.0168649          15.4692          148.376       NO       
+     PART-1-1.30010         0.014969          24.4204          152.896       NO       
+     PART-1-1.30056       0.00568984          14.0749          156.993       NO       
+     PART-1-1.30066       0.00474129          16.0084          157.613       NO       
+     PART-1-1.30079      0.000832883          10.2181          160.118       NO       
+     PART-1-1.30106        0.0141997          23.4597            153.9       NO       
+     PART-1-1.30163        0.0079011          19.2358          153.266       NO       
+     PART-1-1.30208        0.0120331          7.89817          164.665       NO       
+     PART-1-1.30384       0.00839941          19.6604          150.007       NO       
+     PART-1-1.30497        0.0179517          14.6782          150.501       NO       
+     PART-1-1.30512      0.000227191          9.41303          161.558       NO       
+     PART-1-1.30558        0.0105418          13.7064          156.318       NO       
+     PART-1-1.30677        0.0116516          10.5751          160.348       NO       
+     PART-1-1.30748       0.00236787          14.9663          160.397       NO       
+     PART-1-1.30786        0.0119585          22.2388           147.72       NO       
+     PART-1-1.30788        0.0205043          11.3764          162.197       NO       
+     PART-1-1.30806        0.0126687          18.6696          152.621       NO       
+     PART-1-1.30838        0.0106416          14.0196          152.216       NO       
+     PART-1-1.30849        0.0119599          22.2352          147.723       NO       
+     PART-1-1.30944        0.0119598          22.2399          147.721       NO       
+     PART-1-1.30963        0.0125937          16.5838          158.204       NO       
+     PART-1-1.30985       0.00770484          14.8556          155.105       NO       
+     PART-1-1.31000        0.0119595          22.2386          147.719       NO       
+     PART-1-1.31036        0.0119622          22.2396          147.718       NO       
+     PART-1-1.31073        0.0119592          22.2391           147.72       NO       
+     PART-1-1.31107         0.011964          22.2441          147.726       NO       
+     PART-1-1.31185        0.0119608          22.2354          147.724       NO       
+     PART-1-1.31253        0.0122603          15.2599          152.743       NO       
+     PART-1-1.31290        0.0119623          22.2393          147.718       NO       
+     PART-1-1.31319        0.0100643          20.1834          148.684       NO       
+     PART-1-1.31321       0.00054698          11.9663          163.961       NO       
+     PART-1-1.31332       0.00161345           16.057          160.667       NO       
+     PART-1-1.31335       0.00711367          21.8441          155.686       NO       
+     PART-1-1.31338        0.0132224          20.1943          147.062       NO       
+     PART-1-1.31343       0.00825761          19.8879          155.894       NO       
+     PART-1-1.31383        0.0119633          22.2406           147.72       NO       
+     PART-1-1.31404         0.017901          19.2957          150.071       NO       
+     PART-1-1.31416       0.00632102          17.0526          155.933       NO       
+     PART-1-1.31438        0.0119636          22.2408          147.719       NO       
+     PART-1-1.31465        0.0176321          14.6381          150.574       NO       
+     PART-1-1.31473        0.0134477          23.2308          154.324       NO       
+     PART-1-1.31502       0.00840817          14.8557          152.911       NO       
+     PART-1-1.31506        0.0173433          16.8096          152.249       NO       
+     PART-1-1.31513       0.00642334          17.1026          155.856       NO       
+     PART-1-1.31531      0.000747688          13.7077          163.829       NO       
+     PART-1-1.31693        0.0177415          19.5194          152.557       NO       
+     PART-1-1.31712        0.0078064          19.4041           150.58       NO       
+     PART-1-1.31728       0.00167764          16.8167          162.183       NO       
+     PART-1-1.31729        0.0137973          19.8575            147.1       NO       
+     PART-1-1.31731       0.00245023          16.4917          158.975       NO       
+     PART-1-1.31736      0.000549608          9.52784          163.091       NO       
+     PART-1-1.31779        0.0119604          22.2398          147.723       NO       
+     PART-1-1.31801        0.0141503          20.3773          146.625       NO       
+     PART-1-1.31854       0.00965079          19.9828          152.089       NO       
+     PART-1-1.31857      0.000111058          8.52893          163.276       NO       
+     PART-1-1.31863       0.00774226          20.5591          155.497       NO       
+     PART-1-1.31865       0.00770639          14.7539          153.672       NO       
+     PART-1-1.31883      0.000836182          10.6667          159.224       NO       
+     PART-1-1.31885        0.0123489          21.3884          147.022       NO       
+     PART-1-1.31909        0.0100743          13.4958          149.107       NO       
+     PART-1-1.31931       0.00336526          9.38348          165.376       NO       
+     PART-1-1.31958        0.0104874          20.2652          148.422       NO       
+     PART-1-1.32028        0.0079037          14.2705          153.977       NO       
+     PART-1-1.32046       0.00179518          14.1502          159.791       NO       
+     PART-1-1.32047        0.0106072          19.8114          154.766       NO       
+     PART-1-1.32074        0.0081353          13.8052          151.568       NO       
+     PART-1-1.32146       0.00285377          18.1891          160.617       NO       
+     PART-1-1.32194        0.0083978          19.8895           150.09       NO       
+     PART-1-1.32269       0.00849493          12.9401          157.367       NO       
+     PART-1-1.32276       0.00180967          16.5715          158.427       NO       
+     PART-1-1.32277       0.00283237          13.2023          153.786       NO       
+     PART-1-1.32282        0.0507209          7.71795          163.551       NO       
+     PART-1-1.32285        0.0016046          16.4871          160.314       NO       
+     PART-1-1.32287       0.00242887          18.3013          160.592       NO       
+     PART-1-1.32294       0.00129729          13.2041          162.249       NO       
+     PART-1-1.32308        0.0164999          18.8543          150.903       NO       
+     PART-1-1.32327       0.00174005          10.6111          160.605       NO       
+     PART-1-1.32330       0.00324719          15.8972          156.345       NO       
+     PART-1-1.32332        0.0135736          17.7057          150.395       NO       
+     PART-1-1.32335       0.00174653          15.0477          162.936       NO       
+     PART-1-1.32425       0.00660554          13.8153          157.367       NO       
+     PART-1-1.32499        0.0119592          22.2375           147.72       NO       
+     PART-1-1.32549        0.0122505          15.2566          152.749       NO       
+     PART-1-1.32557       0.00778403          14.4738          153.213       NO       
+     PART-1-1.32559        0.0149667          24.9158           152.48       NO       
+     PART-1-1.32560        0.0124715          20.8678           147.12       NO       
+     PART-1-1.32569       0.00794258          17.0662          155.398       NO       
+     PART-1-1.32586        0.0119587          22.2373          147.721       NO       
+     PART-1-1.32603      6.40319E-05          10.0012          170.116       NO       
+     PART-1-1.32719        0.0119596          22.2378           147.72       NO       
+     PART-1-1.32821      0.000490334          11.6587          164.378       NO       
+     PART-1-1.32827       0.00985103          12.4332          160.561       NO       
+     PART-1-1.32861        0.0114188          19.1456          148.613       NO       
+     PART-1-1.32884        0.0188805          17.2437          151.375       NO       
+     PART-1-1.32951        0.0175907          16.4208          145.833       NO       
+     PART-1-1.32952       0.00749329           14.369           153.72       NO       
+     PART-1-1.32966       0.00606743           11.067          154.314       NO       
+     PART-1-1.32986       0.00736199          19.2601          150.982       NO       
+     PART-1-1.33028        0.0119624           22.239          147.718       NO       
+     PART-1-1.33036        0.0172247          19.1926          150.618       NO       
+     PART-1-1.33051       0.00285761           13.147          159.097       NO       
+     PART-1-1.33070      0.000962137           12.757          162.198       NO       
+     PART-1-1.33071       0.00812824          19.1292          153.255       NO       
+     PART-1-1.33076       0.00198066          16.5005          157.949       NO       
+     PART-1-1.33085       0.00175073          16.1748          162.017       NO       
+     PART-1-1.33095       0.00078758          14.5776          165.074       NO       
+     PART-1-1.33107       0.00283653          12.6508          157.152       NO       
+     PART-1-1.33139       0.00927503          17.1103          153.943       NO       
+     PART-1-1.33157        0.0135044          24.6609           154.14       NO       
+     PART-1-1.33160       0.00298621          13.8396          155.569       NO       
+     PART-1-1.33193       0.00670698          15.1029          153.003       NO       
+     PART-1-1.33210        0.0136237          11.2412          155.813       NO       
+     PART-1-1.33217       0.00723378          18.7991          153.786       NO       
+     PART-1-1.33237        0.0578765          9.87108           156.66       NO       
+     PART-1-1.33263        0.0279158          8.26481          160.933       NO       
+     PART-1-1.33300       0.00957978          12.2403          160.872       NO       
+     PART-1-1.33309       0.00520366          15.2187          156.303       NO       
+     PART-1-1.33323        0.0153762           12.446          154.368       NO       
+     PART-1-1.33380       0.00614314          19.8291          154.121       NO       
+     PART-1-1.33382        0.0125393           15.436          148.073       NO       
+     PART-1-1.33386        0.0128047          24.3201          153.181       NO       
+     PART-1-1.33393        0.0123091          20.8702          147.231       NO       
+     PART-1-1.33417         0.011627          16.4699          151.349       NO       
+     PART-1-1.33422       0.00817669          19.8557          156.313       NO       
+     PART-1-1.33425       0.00746416          18.7439          154.126       NO       
+     PART-1-1.33426        0.0184627            13.86          150.119       NO       
+     PART-1-1.33465       0.00130604          13.3743          161.731       NO       
+     PART-1-1.33473        0.0153719          15.8923          150.135       NO       
+     PART-1-1.33474       0.00734844           20.104          156.071       NO       
+     PART-1-1.33753        0.0112977             21.4          154.085       NO       
+     PART-1-1.33796        0.0174591          14.4244           145.85       NO       
+     PART-1-1.33799       0.00274913          15.2965             159.       NO       
+     PART-1-1.33803        0.0121887          18.2737          152.217       NO       
+     PART-1-1.33810       0.00245252           17.662          161.192       NO       
+     PART-1-1.33842       0.00682501          20.4452          156.097       NO       
+     PART-1-1.33845        0.0120286          15.9308          154.067       NO       
+     PART-1-1.33847       0.00679492          14.5755          153.545       NO       
+     PART-1-1.33852        0.0171124          23.2272          151.345       NO       
+     PART-1-1.33859       0.00862008          17.5011          154.478       NO       
+     PART-1-1.33869       0.00274419          5.85691          167.391       NO       
+     PART-1-1.33961          0.01196          22.2396          147.721       NO       
+     PART-1-1.33966       0.00454656          14.6815          156.749       NO       
+     PART-1-1.33989      0.000427344          9.87859           161.28       NO       
+     PART-1-1.34010         0.000269          11.9278          166.521       NO       
+     PART-1-1.34017        0.0112578          14.6898          150.331       NO       
+     PART-1-1.34046        0.0126046          16.3595          155.666       NO       
+     PART-1-1.34054        0.0144044          10.3139          146.333       NO       
+     PART-1-1.34055       0.00992861          20.6012          155.087       NO       
+     PART-1-1.34069       0.00198121          11.9193          156.238       NO       
+     PART-1-1.34089       0.00987531          13.8509          153.868       NO       
+     PART-1-1.34092        0.0123232          15.2483          152.782       NO       
+     PART-1-1.34172       0.00651436          21.1805          156.744       NO       
+     PART-1-1.34249        0.0104262          23.0893          154.584       NO       
+     PART-1-1.34254         0.011977          15.2035          149.135       NO       
+     PART-1-1.34266      8.07795E-05           8.3699          167.936       NO       
+     PART-1-1.34290      0.000623007          13.8655          162.858       NO       
+     PART-1-1.34304       0.00016104          11.4974          168.223       NO       
+     PART-1-1.34308      0.000454684          10.8191          163.929       NO       
+     PART-1-1.34310      0.000793519          10.7842          158.948       NO       
+     PART-1-1.34344       0.00997561           19.944          148.876       NO       
+     PART-1-1.34378      9.13392E-05          10.4561          168.321       NO       
+     PART-1-1.34421       0.00815549          13.6595           154.63       NO       
+     PART-1-1.34514         0.012815          20.3648          147.177       NO       
+     PART-1-1.34516       0.00934924           20.663          155.034       NO       
+     PART-1-1.34559        0.0140279          18.3345          151.893       NO       
+     PART-1-1.34582        0.0016288          13.5981          160.905       NO       
+     PART-1-1.34583      0.000376613           13.153          166.401       NO       
+     PART-1-1.34644       0.00494132          16.5165           156.85       NO       
+     PART-1-1.34645       0.00760091          14.4553          153.769       NO       
+     PART-1-1.34662        0.0119601          22.2384          147.722       NO       
+     PART-1-1.34687      0.000768196          13.5333          162.343       NO       
+     PART-1-1.34717       0.00815509          20.3546          155.771       NO       
+     PART-1-1.34721       0.00149442          15.0578          159.549       NO       
+     PART-1-1.34734       0.00765427          19.7044          153.221       NO       
+     PART-1-1.34737        0.0164429          23.1492          151.676       NO       
+     PART-1-1.34743         0.009869          21.9118          154.318       NO       
+     PART-1-1.34756      0.000498626          13.6969          163.437       NO       
+     PART-1-1.34760        0.0119606           22.241          147.719       NO       
+     PART-1-1.34761      0.000532184           13.547          165.696       NO       
+     PART-1-1.34767       0.00119388          15.4055           163.89       NO       
+     PART-1-1.34789       0.00508285          14.8579          156.893       NO       
+     PART-1-1.34904        0.0158854          22.1131          148.633       NO       
+     PART-1-1.34912        0.0118683          15.0177          157.237       NO       
+     PART-1-1.34995      5.98734E-05          7.43391          166.129       NO       
+     PART-1-1.35000      6.31229E-05          9.91487           169.03       NO       
+     PART-1-1.35003      4.65523E-05          8.01735          169.616       NO       
+     PART-1-1.35005      0.000742953          10.9711          158.004       NO       
+     PART-1-1.35007      0.000262361          12.2395          167.703       NO       
+     PART-1-1.35010      8.66178E-05          9.86561          170.099       NO       
+     PART-1-1.35011       0.00888994           10.146          160.313       NO       
+     PART-1-1.35013       0.00264507          17.9331          160.973       NO       
+     PART-1-1.35021       0.00650602          15.2911          155.351       NO       
+     PART-1-1.35022      0.000246735           10.316          166.181       NO       
+     PART-1-1.35023       0.00857938          20.6828           155.48       NO       
+     PART-1-1.35031       0.00373487          17.5902          154.944       NO       
+     PART-1-1.35044         0.014101          15.1727          149.249       NO       
+     PART-1-1.35046       0.00649185          19.1842          154.171       NO       
+     PART-1-1.35049       0.00699026          14.3822          150.776       NO       
+     PART-1-1.35052      0.000662891          14.3348          165.435       NO       
+     PART-1-1.35053      0.000185221           9.8844          166.848       NO       
+     PART-1-1.35054       0.00053165          10.4741          159.253       NO       
+     PART-1-1.35057      3.94144E-05          6.77609          168.645       NO       
+     PART-1-1.35063      8.67237E-05           8.2234          164.024       NO       
+     PART-1-1.35067      5.01631E-05           9.4789          169.527       NO       
+     PART-1-1.35078      3.94715E-05          8.60227          171.447       NO       
+     PART-1-1.35126       0.00821447          13.7572          154.909       NO       
+     PART-1-1.35167       0.00621488          14.7874          156.179       NO       
+     PART-1-1.35180        0.0127339          23.2396          152.389       NO       
+     PART-1-1.35181        0.0126743          16.3433           149.79       NO       
+     PART-1-1.35436       0.00276494          16.3392          156.896       NO       
+     PART-1-1.35486       0.00892554          18.9934          150.076       NO       
+     PART-1-1.35561        0.0016958          10.6787          160.255       NO       
+     PART-1-1.35594        0.0154804          20.8221          153.939       NO       
+     PART-1-1.35653      6.98367E-22      0.000258915             180.       NO       
+     PART-1-1.35671       0.00886916          18.3894          150.504       NO       
+     PART-1-1.35702       0.00015113          11.3753          168.508       NO       
+     PART-1-1.35726        0.0119603          22.2406          147.719       NO       
+     PART-1-1.35729       0.00708523          14.8839           151.03       NO       
+     PART-1-1.35751       0.00752803          20.4281          155.864       NO       
+     PART-1-1.35767       0.00783021          18.1956          157.773       NO       
+     PART-1-1.35775       0.00602778          14.4825          156.107       NO       
+     PART-1-1.35819        0.0119613           22.244          147.717       NO       
+     PART-1-1.35838        0.0119616          22.2388          147.721       NO       
+     PART-1-1.35870       0.00277542          11.6465          164.846       NO       
+     PART-1-1.35916        0.0146524          21.8413          153.411       NO       
+     PART-1-1.35958        0.0180135          19.6019          145.788       NO       
+     PART-1-1.36093      3.74195E-05          7.75459          169.998       NO       
+     PART-1-1.36098       0.00239676          16.3692          157.295       NO       
+     PART-1-1.36099       0.00180928          15.9039          162.185       NO       
+     PART-1-1.36102      0.000198062          8.55528          165.317       NO       
+     PART-1-1.36118       0.00134539          10.8243          158.351       NO       
+     PART-1-1.36155      3.41487E-25      5.04811E-05             180.       NO       
+     PART-1-1.36374        0.0126918          23.0161          154.433       NO       
+     PART-1-1.36381        0.0145691          13.6843          152.252       NO       
+     PART-1-1.36417       0.00613339          16.5862          156.242       NO       
+     PART-1-1.36425       0.00821387          20.5739          155.434       NO       
+     PART-1-1.36426      0.000598658          13.2981          165.682       NO       
+     PART-1-1.36549       0.00040362          13.5501          166.457       NO       
+     PART-1-1.36550       0.00480982          13.4792          153.732       NO       
+     PART-1-1.36555      0.000702535          12.0279          163.184       NO       
+     PART-1-1.36556      0.000207056          8.97296          162.505       NO       
+     PART-1-1.36652       0.00697104          19.3581           153.82       NO       
+     PART-1-1.36674        0.0116356          21.0172          147.479       NO       
+     PART-1-1.36767       0.00796025          20.2729          155.956       NO       
+     PART-1-1.36816        0.0119614          22.2414          147.718       NO       
+     PART-1-1.36853       0.00817268          14.5045          153.684       NO       
+     PART-1-1.36859       0.00671543          19.5706          151.238       NO       
+     PART-1-1.36880        0.0116547          16.3291          155.694       NO       
+     PART-1-1.36949        0.0165067          12.1649          161.273       NO       
+     PART-1-1.36952        0.0121496          10.7213          163.234       NO       
+     PART-1-1.36954        0.0051025          16.6621          156.774       NO       
+     PART-1-1.36978       0.00829978          14.8278          152.978       NO       
+     PART-1-1.37017       0.00253215          17.8726           161.26       NO       
+     PART-1-1.37019      0.000815723          14.2074          161.816       NO       
+     PART-1-1.37020      0.000596678          9.97115          162.615       NO       
+     PART-1-1.37024       0.00417828           31.448          158.851       NO       
+     PART-1-1.37025        0.0109952          23.1448          154.369       NO       
+     PART-1-1.37113          0.01097          19.1361          148.866       NO       
+     PART-1-1.37128       0.00205698           17.339          159.692       NO       
+     PART-1-1.37149       0.00928825          11.3661          162.306       NO       
+     PART-1-1.37162        0.0531848          7.68039          166.776       NO       
+     PART-1-1.37164        0.0141175          23.4917          153.786       NO       
+     PART-1-1.37189         0.139713          8.38235          158.145       NO       
+     PART-1-1.37208        0.0134533          18.2972          152.257       NO       
+     PART-1-1.37213        0.0212809          7.05053           162.89       NO       
+     PART-1-1.37272       0.00783023          18.1959          157.772       NO       
+     PART-1-1.37307       0.00713129          17.4656          155.014       NO       
+     PART-1-1.37335        0.0189824          16.8813          152.984       NO       
+     PART-1-1.37347       0.00966628          18.9843          153.778       NO       
+     PART-1-1.37368        0.0119609          22.2411          147.718       NO       
+     PART-1-1.37384       0.00529309          12.2586          153.803       NO       
+     PART-1-1.37385        0.0126343          18.5516          151.912       NO       
+     PART-1-1.37386          0.01969          15.0531          144.435       NO       
+     PART-1-1.37404        0.0127915          13.0039          153.984       NO       
+     PART-1-1.37479        0.0119614          22.2384          147.722       NO       
+     PART-1-1.37536        0.0176878          21.1283          155.092       NO       
+     PART-1-1.37618        0.0155595          13.2996          155.657       NO       
+     PART-1-1.37643       0.00890685          19.9442          149.508       NO       
+     PART-1-1.37663      7.80066E-05          9.42544          170.472       NO       
+     PART-1-1.37666       0.00010669          10.2479          168.081       NO       
+     PART-1-1.37668        0.0119603          22.2405          147.718       NO       
+     PART-1-1.37709       0.00782826          18.1947          157.775       NO       
+     PART-1-1.37741        0.0119604          22.2373          147.719       NO       
+     PART-1-1.37759         0.002639          18.8959          160.017       NO       
+     PART-1-1.37768       0.00782965          18.1953          157.774       NO       
+     PART-1-1.37771       0.00782932          18.1954          157.773       NO       
+     PART-1-1.37792       0.00783386          18.1985          157.769       NO       
+     PART-1-1.37815        0.0119607          22.2433          147.716       NO       
+     PART-1-1.37901        0.0078322          18.2008          157.773       NO       
+     PART-1-1.37965       0.00782604          18.1897          157.777       NO       
+     PART-1-1.37982        0.0185868           19.777          149.942       NO       
+     PART-1-1.37998       0.00783096           18.197          157.772       NO       
+     PART-1-1.38059        0.0104246           18.003          152.491       NO       
+     PART-1-1.38102       0.00798597          20.0583           152.78       NO       
+     PART-1-1.38170        0.0119613          22.2383          147.721       NO       
+     PART-1-1.38214        0.0157621          15.2148          149.137       NO       
+     PART-1-1.38223        0.0100908          14.6154          152.688       NO       
+     PART-1-1.38227       0.00609029          15.2262          155.628       NO       
+     PART-1-1.38237        0.0101313          21.2999          154.512       NO       
+     PART-1-1.38240       0.00708799          19.2722          153.765       NO       
+     PART-1-1.38242        0.0123726          18.4297          152.747       NO       
+     PART-1-1.38246       0.00629823          14.3048          153.996       NO       
+     PART-1-1.38250       0.00640506          19.2867          151.624       NO       
+     PART-1-1.38283        0.0113749           20.003          148.159       NO       
+     PART-1-1.38289         0.007833          18.1981          157.771       NO       
+     PART-1-1.38343        0.0974972           8.2482           160.11       NO       
+     PART-1-1.38363       0.00783236          18.1977          157.771       NO       
+     PART-1-1.38381       0.00602564          19.6251          152.029       NO       
+     PART-1-1.38431        0.0445048          12.7649          160.156       NO       
+     PART-1-1.38434        0.0119603          22.2383          147.721       NO       
+     PART-1-1.38552        0.0131456          9.48599          156.572       NO       
+     PART-1-1.38619        0.0078316          18.1979          157.771       NO       
+     PART-1-1.38620        0.0194595          24.7989           152.29       NO       
+     PART-1-1.38794       0.00252997           16.448          159.369       NO       
+     PART-1-1.38989       0.00774884          13.0382          155.595       NO       
+     PART-1-1.38990        0.0131847          19.4843          147.562       NO       
+     PART-1-1.39054      0.000134102          11.1573          167.269       NO       
+     PART-1-1.39057      0.000253974          9.58818          161.018       NO       
+     PART-1-1.39060      0.000948668          14.7487          161.166       NO       
+     PART-1-1.39061       0.00232078          12.7321          154.146       NO       
+     PART-1-1.39063       0.00664586           19.561          153.812       NO       
+     PART-1-1.39067      0.000168158           11.575          168.291       NO       
+     PART-1-1.39081       0.00188055          14.9136           162.88       NO       
+     PART-1-1.39082        0.0013097          15.7579          159.989       NO       
+     PART-1-1.39087        0.0105921          22.5755          155.011       NO       
+     PART-1-1.39089       0.00955668          17.3473          154.187       NO       
+     PART-1-1.39111        0.0093015          14.3182          153.769       NO       
+     PART-1-1.39117       0.00346026          12.8427          154.435       NO       
+     PART-1-1.39118      0.000211991          11.6419          167.158       NO       
+     PART-1-1.39132       8.9869E-05          7.63762          167.075       NO       
+     PART-1-1.39139       0.00124756          15.6768          163.117       NO       
+     PART-1-1.39141       8.1263E-05          8.68951          168.625       NO       
+     PART-1-1.39142        0.0118216          19.6526          148.097       NO       
+     PART-1-1.39217        0.0177474          21.2288          149.121       NO       
+     PART-1-1.39222      8.64121E-05          7.59743           166.98       NO       
+     PART-1-1.39226        0.0141533          21.0916          146.207       NO       
+     PART-1-1.39232       0.00151615          16.3112          160.649       NO       
+     PART-1-1.39313       0.00362725          17.7587          158.786       NO       
+     PART-1-1.39347       0.00772048          19.7136          153.014       NO       
+     PART-1-1.39408        0.0156143          11.5973          146.439       NO       
+     PART-1-1.39413       0.00579127          17.7305          153.111       NO       
+     PART-1-1.39414       0.00787662          21.0469           155.84       NO       
+     PART-1-1.39441       0.00106164          14.5406          162.526       NO       
+     PART-1-1.39442       0.00111626          15.6225          163.153       NO       
+     PART-1-1.39448      0.000596154          13.8522          162.892       NO       
+     PART-1-1.39451       0.00136823          11.8518          155.923       NO       
+     PART-1-1.39458       0.00822233          15.1772          154.048       NO       
+     PART-1-1.39468        0.0142532          15.3853          148.955       NO       
+     PART-1-1.39564       0.00486948          18.9044          157.605       NO       
+     PART-1-1.39581        0.0132925          19.1253          156.381       NO       
+     PART-1-1.39670        0.0178086          18.1624          145.537       NO       
+     PART-1-1.39715       0.00955056          19.5472          150.181       NO       
+     PART-1-1.39784       0.00767973          17.1959          154.765       NO       
+     PART-1-1.39791      8.21322E-05          10.0034          169.334       NO       
+     PART-1-1.39865       0.00955169          19.5473          150.181       NO       
+     PART-1-1.39971        0.0119612          22.2377          147.719       NO       
+     PART-1-1.40004       0.00782548          18.1934          157.779       NO       
+     PART-1-1.40010        0.0139744          16.6787          153.574       NO       
+     PART-1-1.40049        0.0119604          22.2416          147.716       NO       
+     PART-1-1.40161       0.00782412          18.1883          157.779       NO       
+     PART-1-1.40178        0.0119632          22.2462          147.722       NO       
+     PART-1-1.40196       0.00783012          18.1955          157.773       NO       
+     PART-1-1.40257       0.00589069           14.588          153.956       NO       
+     PART-1-1.40268       0.00783574          18.2031          157.767       NO       
+     PART-1-1.40337        0.0078308          18.1969          157.772       NO       
+     PART-1-1.40374       0.00783143          18.1965          157.772       NO       
+     PART-1-1.40382        0.0088174          17.9729          154.816       NO       
+     PART-1-1.40422       0.00783045          18.1966          157.772       NO       
+     PART-1-1.40428       0.00411428          19.0273           156.99       NO       
+     PART-1-1.40431        0.0027053          13.7803          161.553       NO       
+     PART-1-1.40461         0.011965           22.247          147.721       NO       
+     PART-1-1.40486         0.011961          22.2381          147.721       NO       
+     PART-1-1.40493        0.0101398          11.3484          156.177       NO       
+     PART-1-1.40531        0.0078308          18.1963          157.773       NO       
+     PART-1-1.40565       0.00783189          18.1968          157.772       NO       
+     PART-1-1.40636        0.0139044          16.5016          155.461       NO       
+     PART-1-1.40775      0.000119926          8.33986          164.157       NO       
+     PART-1-1.40890        0.0119618           22.239           147.72       NO       
+     PART-1-1.40894        0.0119609          22.2412          147.718       NO       
+     PART-1-1.40930        0.0195566          23.0475          145.497       NO       
+     PART-1-1.41027        0.0117342          19.6395          148.241       NO       
+     PART-1-1.41108       0.00681068          7.55589          165.593       NO       
+     PART-1-1.41129        0.0119614           22.239          147.721       NO       
+     PART-1-1.41207      4.92816E-19      0.000432077          179.999       NO       
+     PART-1-1.41243       0.00715449          13.6687          154.076       NO       
+     PART-1-1.41253       0.00942086          15.6001          153.487       NO       
+     PART-1-1.41261       0.00884179          19.0736          153.052       NO       
+     PART-1-1.41265        0.0162499           24.065          145.515       NO       
+     PART-1-1.41279        0.0102249          20.4172          155.666       NO       
+     PART-1-1.41282       0.00782719          19.0205          153.419       NO       
+     PART-1-1.41338       0.00787097          17.2167          154.417       NO       
+     PART-1-1.41342        0.0182125          20.7399          144.919       NO       
+     PART-1-1.41374      8.54606E-05          9.97762          169.254       NO       
+     PART-1-1.41397       0.00828564          17.2742          151.509       NO       
+     PART-1-1.41426        0.0103814          20.2405          155.324       NO       
+     PART-1-1.41475        0.0131531          18.7309          152.564       NO       
+     PART-1-1.41488       0.00692389          15.7096          154.893       NO       
+     PART-1-1.41511       0.00309256          16.5387          160.755       NO       
+     PART-1-1.41512       0.00268772          12.8833          154.089       NO       
+     PART-1-1.41518       0.00168187          15.9778          158.986       NO       
+     PART-1-1.41524       0.00468244          13.1513          151.759       NO       
+     PART-1-1.41534        0.0110548           14.509          152.225       NO       
+     PART-1-1.41695       0.00882881          13.6713          154.537       NO       
+     PART-1-1.41705       0.00170145          14.0617          161.093       NO       
+     PART-1-1.41725      0.000330118          9.46923          161.781       NO       
+     PART-1-1.41727      0.000528406          11.4914          164.323       NO       
+     PART-1-1.41760       0.00276355          18.8442          160.098       NO       
+     PART-1-1.41783       0.00155072          13.2938          159.967       NO       
+     PART-1-1.41875        0.0160288          18.0925          153.038       NO       
+     PART-1-1.41889       0.00527293           17.512          156.324       NO       
+     PART-1-1.41961        0.0140769          18.8229          151.973       NO       
+     PART-1-1.41966        0.0136162          23.2747           154.26       NO       
+     PART-1-1.41972       0.00741451          18.5823          153.959       NO       
+     PART-1-1.41997        0.0164247          19.2338          158.114       NO       
+     PART-1-1.42007        0.0137987           25.918          147.541       NO       
+     PART-1-1.42010       0.00613095          17.4154          153.153       NO       
+     PART-1-1.42146       0.00252526          14.0531          158.975       NO       
+     PART-1-1.42158        0.0115193          14.4279          151.476       NO       
+     PART-1-1.42283       0.00842326          13.9903          153.575       NO       
+     PART-1-1.42295       0.00807274          19.3104          155.242       NO       
+     PART-1-1.42301       0.00389465          13.0847          154.301       NO       
+     PART-1-1.42303       0.00241146          14.2945          159.736       NO       
+     PART-1-1.42319       0.00946653          19.0302          150.897       NO       
+     PART-1-1.42326       0.00203009          16.1471          159.782       NO       
+     PART-1-1.42385        0.0102362          22.6994          155.284       NO       
+     PART-1-1.42388       0.00991455           21.084          148.387       NO       
+     PART-1-1.42399       0.00679993          14.3327          151.084       NO       
+     PART-1-1.42401       0.00161144          11.2966           159.91       NO       
+     PART-1-1.42413       0.00662843          19.3522          153.962       NO       
+     PART-1-1.42417       0.00147628          13.2844          161.271       NO       
+     PART-1-1.42422       0.00411021          18.7287          158.988       NO       
+     PART-1-1.42488       0.00883013          11.8978          161.359       NO       
+     PART-1-1.42489       0.00870893          17.1494          151.564       NO       
+     PART-1-1.42505        0.0118364          11.7479          160.114       NO       
+     PART-1-1.42536        0.0166361          21.8623           144.66       NO       
+     PART-1-1.42646       0.00563707          14.5099          156.559       NO       
+     PART-1-1.42673       0.00611556          16.7698          155.902       NO       
+     PART-1-1.42680       0.00387545          8.06439          164.749       NO       
+     PART-1-1.42763        0.0153002          24.1323          153.344       NO       
+     PART-1-1.42766       0.00730632          18.8339          153.939       NO       
+     PART-1-1.42803        0.0172446          22.5314          147.958       NO       
+     PART-1-1.42815        0.0158736          24.1913          153.078       NO       
+     PART-1-1.42875      6.78692E-05          7.88227          168.458       NO       
+     PART-1-1.42877        0.0119194          22.8386           154.74       NO       
+     PART-1-1.42899       0.00484461           13.601          150.722       NO       
+     PART-1-1.42905       0.00261849          16.1628          161.474       NO       
+     PART-1-1.42906       0.00369792          17.7518          159.041       NO       
+     PART-1-1.42908       0.00260631           11.169          159.207       NO       
+     PART-1-1.42925        0.0173171          19.2417          150.724       NO       
+     PART-1-1.42972       0.00581131          20.6954          157.056       NO       
+     PART-1-1.42976       0.00251616          18.5922          160.348       NO       
+     PART-1-1.42997       0.00551416          18.0271          155.389       NO       
+     PART-1-1.43000       0.00213614          14.5851          159.306       NO       
+     PART-1-1.43005       0.00164747          15.8465          162.596       NO       
+     PART-1-1.43037        0.0124793           14.492          151.302       NO       
+     PART-1-1.43122        0.0132893           19.124          156.384       NO       
+     PART-1-1.43148       0.00563441          15.1922          158.089       NO       
+     PART-1-1.43208       0.00887645          14.0215           150.76       NO       
+     PART-1-1.43217       0.00306472          12.3676          155.006       NO       
+     PART-1-1.43231       0.00185032          13.1441           159.49       NO       
+     PART-1-1.43287        0.0119605          22.2382           147.72       NO       
+     PART-1-1.43376        0.0131257          23.3082          154.093       NO       
+     PART-1-1.43510      0.000193008          12.0623          167.972       NO       
+     PART-1-1.43517      0.000259805          9.92377          165.157       NO       
+     PART-1-1.43529        0.0139304           16.552          155.427       NO       
+     PART-1-1.43724        0.0136569          20.5836          153.831       NO       
+     PART-1-1.43803        0.0119608          22.2383           147.72       NO       
+     PART-1-1.43863       0.00623932           16.121          154.787       NO       
+     PART-1-1.43912        0.0119607          22.2405          147.718       NO       
+     PART-1-1.43961        0.0067161          19.8625          153.768       NO       
+     PART-1-1.43972        0.0110587          19.9126          148.457       NO       
+     PART-1-1.43984      0.000103081          9.05484          167.938       NO       
+     PART-1-1.44003        0.0141004          15.3632          148.028       NO       
+     PART-1-1.44008       0.00502924          15.2476          156.166       NO       
+     PART-1-1.44019        0.0119609          22.2412          147.718       NO       
+     PART-1-1.44045      1.91868E-22      0.000187469             180.       NO       
+     PART-1-1.44101        0.0119598          22.2408          147.719       NO       
+     PART-1-1.44118       0.00743403          19.4109          156.731       NO       
+     PART-1-1.44128       0.00698673          11.5503          154.815       NO       
+     PART-1-1.44227        0.0103231          13.1787          154.535       NO       
+     PART-1-1.44239       0.00817379          13.9347           154.59       NO       
+     PART-1-1.44279        0.0152203          12.1298          150.478       NO       
+     PART-1-1.44287      0.000919786          10.4445          159.766       NO       
+     PART-1-1.44288        0.0160045          16.5265          153.609       NO       
+     PART-1-1.44298      8.90863E-21      0.000381796          179.999       NO       
+     PART-1-1.44345        0.0119612          22.2416          147.719       NO       
+     PART-1-1.44358       0.00750402          17.2074          154.825       NO       
+     PART-1-1.44441        0.0179914           12.023          155.507       NO       
+     PART-1-1.44493       0.00579539          13.7238           159.12       NO       
+     PART-1-1.44525         0.157448          8.18926          160.586       NO       
+     PART-1-1.44571          0.05514          7.64953           157.73       NO       
+     PART-1-1.44607       0.00358033          17.2823          154.317       NO       
+     PART-1-1.44608        0.0135891          15.6808          149.021       NO       
+     PART-1-1.44627        0.0179904          16.0188          137.959       NO       
+     PART-1-1.44628        0.0180959          9.46092          158.325       NO       
+     PART-1-1.44630        0.0172859          13.4419          154.259       NO       
+     PART-1-1.44638        0.0924985          7.13829          161.536       NO       
+     PART-1-1.44655        0.0184159          26.4126          152.571       NO       
+     PART-1-1.44662        0.0547976          7.64553          157.764       NO       
+     PART-1-1.44681        0.0545013          7.67169          157.673       NO       
+     PART-1-1.44712       0.00781454          14.6193          145.503       NO       
+     PART-1-1.44713       0.00787125          7.83188          163.728       NO       
+     PART-1-1.44767         0.116141          7.15812          162.043       NO       
+     PART-1-1.44890        0.0148839          23.3018          144.088       NO       
+     PART-1-1.44895       0.00726613          13.9627          154.633       NO       
+     PART-1-1.44916        0.0799144          9.89848          156.131       NO       
+     PART-1-1.44918        0.0102174          7.90055          162.343       NO       
+     PART-1-1.44966        0.0551101          7.65146          157.742       NO       
+     PART-1-1.44986        0.0547779           7.6465          157.762       NO       
+     PART-1-1.45005        0.0085819          28.7628          156.723       NO       
+     PART-1-1.45059       0.00422239          18.1292          159.612       NO       
+     PART-1-1.45062        0.0123305          9.01816          157.839       NO       
+     PART-1-1.45132       0.00731982          18.7647          157.575       NO       
+     PART-1-1.45150        0.0148718          23.2817           144.09       NO       
+     PART-1-1.45172       0.00736595          18.7917          157.539       NO       
+     PART-1-1.45244        0.0148833          23.3013          144.088       NO       
+     PART-1-1.45316       0.00733723          18.7621          157.571       NO       
+     PART-1-1.45334        0.0073451          18.7689          157.562       NO       
+     PART-1-1.45346       0.00733965           18.765          157.569       NO       
+     PART-1-1.45354       0.00733725          18.7632          157.571       NO       
+     PART-1-1.45358       0.00734068          18.7651          157.568       NO       
+     PART-1-1.45362       0.00733945          18.7647          157.569       NO       
+     PART-1-1.45366       0.00734618          18.7729          157.563       NO       
+     PART-1-1.45382       0.00734617          18.7695           157.56       NO       
+     PART-1-1.45398       0.00734119          18.7654          157.568       NO       
+     PART-1-1.45410       0.00734301          18.7679          157.566       NO       
+     PART-1-1.45422       0.00734321           18.768          157.566       NO       
+     PART-1-1.45450        0.0073426          18.7683          157.565       NO       
+     PART-1-1.45486       0.00848714          16.0711           155.77       NO       
+     PART-1-1.45487       0.00553564          13.4635          158.927       NO       
+     PART-1-1.45489        0.0155435          9.66469          158.224       NO       
+     PART-1-1.45490        0.0196953          9.93574          158.196       NO       
+     PART-1-1.45513       0.00660864          15.0275          158.833       NO       
+     PART-1-1.45534       0.00733903          18.7633          157.569       NO       
+     PART-1-1.45546        0.0122588           16.213          155.624       NO       
+     PART-1-1.45559       0.00733777          18.7635           157.57       NO       
+     PART-1-1.45591       0.00733832          18.7639           157.57       NO       
+     PART-1-1.45647       0.00734162          18.7658          157.567       NO       
+     PART-1-1.45667         0.023514          7.87199          160.547       NO       
+     PART-1-1.45669        0.0913773          8.02486          159.929       NO       
+     PART-1-1.45675        0.0166916          11.7869          150.297       NO       
+     PART-1-1.45736       0.00734016          18.7652          157.568       NO       
+     PART-1-1.45855       0.00734172          18.7669          157.566       NO       
+     PART-1-1.45859        0.0073388          18.7647          157.571       NO       
+     PART-1-1.45934        0.0073383           18.764          157.571       NO       
+     PART-1-1.45942         0.014885          23.3094          144.092       NO       
+     PART-1-1.45946       0.00733578          18.7617          157.575       NO       
+     PART-1-1.45950       0.00734269          18.7674          157.566       NO       
+     PART-1-1.46072       0.00733917          18.7647           157.57       NO       
+     PART-1-1.46101        0.0148846          23.3094          144.094       NO       
+     PART-1-1.46111       0.00733835          18.7638          157.571       NO       
+     PART-1-1.46132       0.00734262          18.7667          157.565       NO       
+     PART-1-1.46152       0.00733768          18.7631          157.572       NO       
+     PART-1-1.46156        0.0148834          23.3088           144.09       NO       
+     PART-1-1.46160       0.00734084          18.7649          157.567       NO       
+     PART-1-1.46168        0.0148844           23.309          144.091       NO       
+     PART-1-1.46172        0.0148823          23.3069          144.092       NO       
+     PART-1-1.46176         0.014885          23.3068          144.093       NO       
+     PART-1-1.46180       0.00733492          18.7607          157.575       NO       
+     PART-1-1.46189        0.0148879          23.3168          144.096       NO       
+     PART-1-1.46198        0.0148815          23.3032          144.085       NO       
+     PART-1-1.46202        0.0148838           23.308          144.093       NO       
+     PART-1-1.46206        0.0181206          9.46396          158.318       NO       
+     PART-1-1.46208        0.0172765          13.4397          154.263       NO       
+     PART-1-1.46209         0.018014          16.0243          137.946       NO       
+     PART-1-1.46231       0.00734242          18.7665          157.565       NO       
+     PART-1-1.46247        0.0148858          23.3086          144.093       NO       
+     PART-1-1.46255        0.0148849          23.3082          144.093       NO       
+     PART-1-1.46267       0.00734128          18.7666          157.567       NO       
+     PART-1-1.46291        0.0148839          23.3086          144.094       NO       
+     PART-1-1.46361        0.0021309          16.4394          155.817       NO       
+     PART-1-1.46403        0.0151714           18.257          152.311       NO       
+     PART-1-1.46404        0.0182991          16.6738          148.794       NO       
+     PART-1-1.46411       0.00625819          15.9385          159.939       NO       
+     PART-1-1.46412        0.0159923          18.1178          152.906       NO       
+     PART-1-1.46413        0.0159861          13.9368          148.397       NO       
+     PART-1-1.46427       0.00625872          15.9385          159.939       NO       
+     PART-1-1.46428        0.0159923          18.1173          152.907       NO       
+     PART-1-1.46429        0.0159859          13.9365          148.395       NO       
+     PART-1-1.46436       0.00734142          18.7653          157.567       NO       
+     PART-1-1.46440        0.0148838          23.3125          144.089       NO       
+     PART-1-1.46444       0.00733589          18.7614          157.574       NO       
+     PART-1-1.46452        0.0148807          23.3046          144.085       NO       
+     PART-1-1.46460       0.00734101          18.7693          157.569       NO       
+     PART-1-1.46468        0.0148849          23.3094          144.092       NO       
+     PART-1-1.46476        0.0148865          23.3116          144.101       NO       
+     PART-1-1.46480        0.0148833          23.3075          144.093       NO       
+     PART-1-1.46484        0.0148843          23.3075          144.092       NO       
+     PART-1-1.46488         0.014883          23.3077          144.093       NO       
+     PART-1-1.46492       0.00734287          18.7703          157.568       NO       
+     PART-1-1.46496       0.00734241          18.7665          157.565       NO       
+     PART-1-1.46500        0.0102297          11.8879          155.559       NO       
+     PART-1-1.46504        0.0148854          23.3101          144.091       NO       
+     PART-1-1.46508        0.0148851          23.3078          144.091       NO       
+     PART-1-1.46556       0.00734302          18.7673          157.565       NO       
+     PART-1-1.46560       0.00733932          18.7649           157.57       NO       
+     PART-1-1.46576       0.00734276          18.7677          157.565       NO       
+     PART-1-1.46666       0.00734115          18.7657          157.567       NO       
+     PART-1-1.46723       0.00734174          18.7664          157.566       NO       
+     PART-1-1.46735       0.00733785          18.7632          157.572       NO       
+     PART-1-1.46743       0.00733833           18.764          157.571       NO       
+     PART-1-1.46751       0.00733761          18.7635          157.572       NO       
+     PART-1-1.46771       0.00733886          18.7647          157.571       NO       
+     PART-1-1.46801         0.017428          25.0108          148.763       NO       
+     PART-1-1.46904         0.013915          16.2483          151.293       NO       
+     PART-1-1.46916       0.00637277          18.7339          156.396       NO       
+     PART-1-1.46920        0.0185419          8.29858          158.981       NO       
+     PART-1-1.46934      0.000252916          12.2098          167.851       NO       
+     PART-1-1.47015         0.013888          16.2239           151.26       NO       
+     PART-1-1.47091        0.0177833          15.1526          154.861       NO       
+     PART-1-1.47249       0.00284096          14.6488          154.028       NO       
+     PART-1-1.47250        0.0113316          17.5377          145.306       NO       
+     PART-1-1.47411        0.0405643          9.48456          161.152       NO       
+     PART-1-1.47465        0.0049954          6.65366          164.526       NO       
+     PART-1-1.47526        0.0123326          16.2761          155.526       NO       
+     PART-1-1.47530        0.0125936            15.63          152.415       NO       
+     PART-1-1.47646        0.0122692          16.2162          155.619       NO       
+     PART-1-1.47792        0.0137793           16.046          151.676       NO       
+     PART-1-1.47869       0.00553585          13.4669          158.924       NO       
+     PART-1-1.47947        0.0137979          16.0565          151.663       NO       
+     PART-1-1.47972       0.00436951          12.8173           158.73       NO       
+     PART-1-1.48029        0.0137669          16.0706          151.705       NO       
+     PART-1-1.48249       0.00479291          12.6742          158.516       NO       
+     PART-1-1.48301       0.00551107          13.4435          158.953       NO       
+     PART-1-1.48341        0.0189031          17.5654          147.167       NO       
+     PART-1-1.48481        0.0163885          9.79843          160.294       NO       
+     PART-1-1.48508       0.00579746          9.81332          163.095       NO       
+     PART-1-1.48930       0.00648728          12.3794          160.132       NO       
+     PART-1-1.48931        0.0138385          23.7144          145.521       NO       
+     PART-1-1.48932        0.0139095          11.2473          159.604       NO       
+     PART-1-1.48951       0.00474234          12.2488           157.13       NO       
+     PART-1-1.48962       0.00489855          12.4607          156.897       NO       
+     PART-1-1.49067        0.0160825          17.9501          149.775       NO       
+     PART-1-1.49106       0.00552056          13.4491          158.944       NO       
+     PART-1-1.49196       0.00459908          12.9206          159.139       NO       
+     PART-1-1.49243       0.00415137          17.9201          159.744       NO       
+     PART-1-1.49246        0.0126344          9.05056          157.935       NO       
+     PART-1-1.49295       0.00469299          12.9567          158.994       NO       
+     PART-1-1.49339       0.00889411          14.8484          154.342       NO       
+     PART-1-1.49350       0.00948691          14.5734          154.252       NO       
+     PART-1-1.49412         0.016085          17.9511          149.773       NO       
+     PART-1-1.49433        0.0160409          17.9293          149.797       NO       
+     PART-1-1.49439       0.00744629          14.0349          154.438       NO       
+     PART-1-1.49508       0.00492923          12.4743          156.675       NO       
+     PART-1-1.49513       0.00448993          12.0874          157.303       NO       
+     PART-1-1.49540       0.00553275           13.461          158.931       NO       
+     PART-1-1.49550       0.00616652          13.8396          158.665       NO       
+     PART-1-1.49560       0.00552822          13.4566          158.935       NO       
+     PART-1-1.49613       0.00915284           14.582          154.352       NO       
+     PART-1-1.49629       0.00552736          13.4558          158.936       NO       
+  
+  
+ --------------------------------------------------------------------------------
+ Elements with small volume
+  
+      Element       Adjusted nodes 
+ ------------------ -------------- 
+     PART-1-1.13834       NO       
+     PART-1-1.14978       NO       
+     PART-1-1.15982       NO       
+     PART-1-1.16390       NO       
+     PART-1-1.16431       NO       
+     PART-1-1.18353       NO       
+     PART-1-1.19307       NO       
+     PART-1-1.21557       NO       
+     PART-1-1.21922       NO       
+     PART-1-1.23231       NO       
+     PART-1-1.23242       NO       
+     PART-1-1.23538       NO       
+     PART-1-1.24465       NO       
+     PART-1-1.27028       NO       
+     PART-1-1.27631       NO       
+     PART-1-1.27891       NO       
+     PART-1-1.27943       NO       
+     PART-1-1.27944       NO       
+     PART-1-1.27966       NO       
+     PART-1-1.27967       NO       
+     PART-1-1.28179       NO       
+     PART-1-1.28227       NO       
+     PART-1-1.28304       NO       
+     PART-1-1.33525       NO       
+     PART-1-1.36740       NO       
+     PART-1-1.36796       NO       
+     PART-1-1.36797       NO       
+     PART-1-1.42883       NO       
+  
+  *Step, name=Step-1, nlgeom=NO, perturbation
+  *output, field, variable=PRESELECT
+  *Step, name=Step-1, nlgeom=NO, perturbation
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+  *Step, name=Step-1, nlgeom=NO, perturbation
+  *buckle
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *dsload
+
+ ***ERROR: THE SURFACE ASSEMBLY_TOP_SURFACE HAS NOT BEEN LOCATED
+ LINE IMAGE: ASSEMBLY_TOP_SURFACE, P, 1.
+  *output, field, variable=PRESELECT
+  *endstep
+  *Step, name=Step-1, nlgeom=NO, perturbation
+  *buckle
+  *buckle
+  *boundary, op=NEW, loadcase=1
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_BOTTOM_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *boundary, op=NEW, loadcase=2
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_BOTTOM_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *boundary, op=NEW, loadcase=1
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *boundary, op=NEW, loadcase=2
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET 
+           ASSEMBLY_TOP_SET_PIN BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *endstep
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_BOTTOM_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_TOP_SET_PIN HAS NOT BEEN DEFINED
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                 49647
+          NUMBER OF ELEMENTS DEFINED BY THE USER AND *TIE       49645
+          NUMBER OF NODES IS                                    20920
+          NUMBER OF NODES DEFINED BY THE USER                   20920
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                62766
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+
+
+          THE PROGRAM HAS DISCOVERED    41 FATAL ERRORS
+
+               ** EXECUTION IS TERMINATED **
+
+ ***ERROR: Failed to locate set "ASSEMBLY_TOP_SET_PIN".
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   2.0000    
+       SYSTEM TIME (SEC)    =  0.60000    
+       TOTAL CPU TIME (SEC) =   2.6000    
+       WALLCLOCK TIME (SEC) =          3

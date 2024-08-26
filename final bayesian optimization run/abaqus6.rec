@@ -1,0 +1,317 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-30.0, 25.0), 
+    point2=(0.0, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    -10.5206680297852, 28.6126556396484), value=3048.0, vertex1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[3], vertex2=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[0])
+mdb.models['Model-1'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    15.6176376342773, 15.1862182617188), value=3048.0, vertex1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[2], vertex2=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[3])
+mdb.models['Model-1'].sketches['__profile__'].Spot(point=(-1524.0, 1524.0))
+mdb.models['Model-1'].sketches['__profile__'].move(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[4], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[5], 
+    mdb.models['Model-1'].sketches['__profile__'].vertices[4]), vector=(1524.0, 
+    -1524.0))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='matrix', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['matrix'].BaseSolidExtrude(depth=254.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['matrix'].DatumPointByCoordinate(coords=(0.0, 0.0, 
+    127.0))
+mdb.models['Model-1'].parts['matrix'].DatumPointByCoordinate(coords=(-508.0, 
+    508.0, 127.0))
+mdb.models['Model-1'].parts['matrix'].DatumPointByCoordinate(coords=(508.0, 
+    -508.0, 127.0))
+mdb.models['Model-1'].parts['matrix'].DatumPointByCoordinate(coords=(-1016.0, 
+    1016.0, 127.0))
+mdb.models['Model-1'].parts['matrix'].DatumPointByCoordinate(coords=(1016.0, 
+    -1016.0, 127.0))
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    0.0, 0.0), point1=(12.5, -16.25))
+mdb.models['Model-1'].sketches['__profile__'].RadialDimension(curve=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], radius=
+    0.206210188446165, textPoint=(-41.494556427002, 14.4040946960449))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='fibre', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['fibre'].BaseSolidExtrude(depth=2500.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=10.53, name='__profile__', 
+    sheetSize=421.59, transform=
+    mdb.models['Model-1'].parts['fibre'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['fibre'].faces[2], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['fibre'].edges[1], 
+    sketchOrientation=RIGHT, origin=(0.0, 0.0, 0.0)))
+mdb.models['Model-1'].parts['fibre'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    0.0, 0.0), point1=(-0.206210188446165, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[2], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].parts['fibre'].SolidExtrude(depth=2500.0, 
+    flipExtrudeDirection=OFF, sketch=
+    mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=RIGHT, 
+    sketchPlane=mdb.models['Model-1'].parts['fibre'].faces[2], sketchPlaneSide=
+    SIDE1, sketchUpEdge=mdb.models['Model-1'].parts['fibre'].edges[1])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['fibre'].DatumPointByCoordinate(coords=(0.0, 0.0, 
+    0.0))
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='matrix-1', 
+    part=mdb.models['Model-1'].parts['matrix'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-1', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-1', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=25.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-1', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-1', ), 
+    vector=(0.0, 0.0, 127.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-2', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=25.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-2', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-2', ), 
+    vector=(-508.0, 508.0, 127.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-3', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-3', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=25.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-3', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-3', ), 
+    vector=(508.0, -508.0, 127.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-4', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-4', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=25.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-4', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-4', ), 
+    vector=(-1016.0, 1016.0, 127.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='fibre-5', part=
+    mdb.models['Model-1'].parts['fibre'])
+mdb.models['Model-1'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 10.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-5', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=25.0, axisDirection=(0.0, 0.0, 
+    10.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('fibre-5', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('fibre-5', ), 
+    vector=(1016.0, -1016.0, 127.0))
+mdb.models['Model-1'].rootAssembly.InstanceFromBooleanMerge(domain=BOTH, 
+    instances=(mdb.models['Model-1'].rootAssembly.instances['matrix-1'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-1'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-2'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-3'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-4'], 
+    mdb.models['Model-1'].rootAssembly.instances['fibre-5']), 
+    keepIntersections=ON, mergeNodes=BOUNDARY_ONLY, name='Part-1', 
+    nodeMergingTolerance=1e-06, originalInstances=SUPPRESS)
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=152.92, name='__profile__', 
+    sheetSize=6117.13, transform=
+    mdb.models['Model-1'].parts['Part-1'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[38], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[30], 
+    sketchOrientation=RIGHT, origin=(-4.629858, 1509.0, 127.0)))
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-3000.0, 
+    3000.0), point2=(3000.0, -3000.0))
+mdb.models['Model-1'].parts['Part-1'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[38], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['Part-1'].edges[30])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=215.9, name='__profile__', 
+    sheetSize=8636.0, transform=
+    mdb.models['Model-1'].parts['Part-1'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[33], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[19], 
+    sketchOrientation=RIGHT, origin=(1544.0, -36.201041, 127.0)))
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-3000.0, 
+    3000.0), point2=(3000.0, -3000.0))
+mdb.models['Model-1'].parts['Part-1'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[33], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['Part-1'].edges[19])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=215.9, name='__profile__', 
+    sheetSize=8636.0, transform=
+    mdb.models['Model-1'].parts['Part-1'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[26], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[19], 
+    sketchOrientation=RIGHT, origin=(51.79368, -1539.0, 127.0)))
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-3000.0, 
+    3000.0), point2=(3000.0, -3000.0))
+mdb.models['Model-1'].parts['Part-1'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[26], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['Part-1'].edges[19])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=215.9, name='__profile__', 
+    sheetSize=8636.0, transform=
+    mdb.models['Model-1'].parts['Part-1'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[25], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[21], 
+    sketchOrientation=RIGHT, origin=(-1504.0, 0.909488, 127.0)))
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-3000.0, 
+    3000.0), point2=(3000.0, -3000.0))
+mdb.models['Model-1'].parts['Part-1'].CutExtrude(flipExtrudeDirection=ON, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[25], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['Part-1'].edges[21])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].Material(name='matrix_material')
+mdb.models['Model-1'].materials['matrix_material'].Elastic(table=((
+    117.170324158726, 0.29), ))
+mdb.models['Model-1'].Material(name='fibre_material')
+mdb.models['Model-1'].materials['fibre_material'].Elastic(table=((121000.0, 
+    0.34), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='matrix_material', name=
+    'matrix_section', thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='fibre_material', name=
+    'fibre_section', thickness=None)
+mdb.models['Model-1'].parts['Part-1'].Set(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), name='matrix_set')
+mdb.models['Model-1'].parts['Part-1'].Set(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), name='fibre_set1')
+mdb.models['Model-1'].parts['Part-1'].Set(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells[0:0], name='fibre_set2')
+mdb.models['Model-1'].parts['Part-1'].Set(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells[0:0], name='fibre_set3')
+mdb.models['Model-1'].parts['Part-1'].Set(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells[0:0], name='fibre_set4')
+mdb.models['Model-1'].parts['Part-1'].Set(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), name='fibre_set5')
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Part-1'].sets['matrix_set'], sectionName=
+    'matrix_section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Part-1'].sets['fibre_set1'], sectionName=
+    'fibre_section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Part-1'].sets['fibre_set2'], sectionName=
+    'fibre_section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Part-1'].sets['fibre_set3'], sectionName=
+    'fibre_section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Part-1'].sets['fibre_set4'], sectionName=
+    'fibre_section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Part-1'].sets['fibre_set5'], sectionName=
+    'fibre_section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].BuckleStep(maxIterations=300, name='Step-1', numEigen=3, 
+    previous='Initial', vectors=6)
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, 1524.0, 127.0))
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=(0.0, -1524.0, 127.0))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#40000 ]', ), ), name='top_set_pin')
+mdb.models['Model-1'].RigidBody(name='Constraint-1', pinRegion=
+    mdb.models['Model-1'].rootAssembly.sets['top_set_pin'], refPointRegion=
+    Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[16], )))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#10000 ]', ), ), name='bottom_set_pin')
+mdb.models['Model-1'].RigidBody(name='Constraint-2', pinRegion=
+    mdb.models['Model-1'].rootAssembly.sets['bottom_set_pin'], refPointRegion=
+    Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[17], )))
+mdb.models['Model-1'].EncastreBC(createStepName='Step-1', localCsys=None, name=
+    'BC-1', region=mdb.models['Model-1'].rootAssembly.sets['bottom_set_pin'])
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, buckleCase=
+    PERTURBATION_AND_BUCKLING, createStepName='Step-1', distributionType=
+    UNIFORM, fieldName='', fixed=OFF, localCsys=None, name='BC-2', region=
+    mdb.models['Model-1'].rootAssembly.sets['top_set_pin'], u1=0.0, u2=UNSET, 
+    u3=0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].rootAssembly.Surface(name='top_surface', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#40000 ]', ), ))
+mdb.models['Model-1'].Pressure(createStepName='Step-1', distributionType=
+    UNIFORM, field='', magnitude=1.0, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['top_surface'])
+mdb.models['Model-1'].parts['Part-1'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8R, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)), regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), ))
+mdb.models['Model-1'].parts['Part-1'].seedPart(deviationFactor=0.075, 
+    minSizeFactor=0.01, size=160)
+mdb.models['Model-1'].parts['Part-1'].generateMesh(regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), ))
+mdb.models['Model-1'].parts['Part-1'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8R, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)), regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), ))
+mdb.models['Model-1'].parts['Part-1'].generateMesh(regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(mask=(
+    '[#20 ]', ), ), ))
+mdb.models['Model-1'].parts['Part-1'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Part-1'].cells[0:0], technique=FREE)
+mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8R, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)), regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells[0:0], ))
+#* ERROR: Only regions of the same dimension may be
+#* selected for each element type assignment
